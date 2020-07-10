@@ -49,13 +49,6 @@ from datetime import datetime
 
 '''
 # Set the URLs to open
-nursing_edu_perspectives = "http://ovidsp.ovid.com/rss/journals/00024776/current.rss"
-ajn = "http://ovidsp.ovid.com/rss/journals/00000446/current.rss"
-nursing_made_incredibly_easy = "http://ovidsp.ovid.com/rss/journals/00152258/current.rss"
-nursing = "http://ovidsp.ovid.com/rss/journals/00152193/current.rss"
-nursing_critical_care = "http://ovidsp.ovid.com/rss/journals/01244666/current.rss"
-mcn = "http://ovidsp.ovid.com/rss/journals/00005721/current.rss"
-home_healthcare_now = "http://ovidsp.ovid.com/rss/journals/01845097/current.rss"
 
 journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss','html': 'nursing_education_perspectives.html'},
             'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss','html': 'american_journal_of_nursing.html'},
@@ -70,23 +63,15 @@ journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http:
 # get a datestamp
 datestamp = datetime.today()
 
-# See if files already exist, if not create them
-'''
-exists = os.path.isfile('chromebook_prices.txt')
-if exists == False:
-    #create the file
-    file_done = open('chromebook_prices.txt', 'a', encoding='utf-8')
-    file_done.close()
-'''
-'''
-Open file
-check the title field
-'''
-
 
 def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
+
+def check_issue():
+    #if first_line = journal_title then this is the most recent toc.
+    text = 'text'
+    return text
 
 def process_rss_feed(title, url, html):
     
@@ -95,107 +80,29 @@ def process_rss_feed(title, url, html):
         
     journal_title = soup.title.get_text()   
     page = soup.find_all('item')
+    
+    # check to see if file exists. If not, create it
     exists = os.path.isfile(html)
-    if exists == False:
-    #create the file
+    if exists == False:    
         file = open(html, 'w', encoding='utf-8')
         file.close()
             
-        file = open(html, 'r+')
-        first_line = file.readline()
+    file = open(html, 'w', encoding='utf-8')    
+    file.write(journal_title + "\n")
             
-        file.write(journal_title + "\n")
+    for item in page:        
+        article_title = item.title.get_text()
+        description = item.description.get_text()
+        permalink = update_permalink(item.link.get_text())
             
-        for item in page:        
-            article_title = item.title.get_text()
-            description = item.description.get_text()
-            permalink = update_permalink(item.link.get_text())
-            
-            toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
-            
-            file.write(toc)  
-            
-        file.close()
+        toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"            
+        file.write(toc)          
+    file.close()
             
 
 
-for journal, details in journals.items():
-    
+for journal, details in journals.items():    
     title = details['title']
     url = details['url']
     html = details['html']
-    
-    print(title)
     process_rss_feed(title,url,html)
-
-        
-
-
-        
-'''
-    targets = [nursing_edu_perspectives]
-    for url in targets:
-        page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
-        soup = BeautifulSoup(page,'xml') #xml parser
-        
-        journal_title = soup.title.get_text()   
-        page = soup.find_all('item')
-        
-        # For Nursing Education Perspectives
-        if url == nursing_edu_perspectives:
-            # Check to see if file exists, if not create it
-            exists = os.path.isfile('nursing_education_perspectives.html')
-            if exists == False:
-                #create the file
-                file = open('nursing_education_perspectives.html', 'r+', encoding='utf-8')
-                file.close()
-            
-            file = open('nursing_education_perspectives.html', 'r+')
-            first_line = file.readline()
-            #print("First Line: " + first_line)
- '''           
-'''        TODO
-            if first_line = journal_title then this is the most recent toc.
-            
-            '''
-            
-'''
-            file.write(journal_title + "\n")
-            
-            
-        for item in page:        
-            article_title = item.title.get_text()
-            description = item.description.get_text()
-            permalink = update_permalink(item.link.get_text())
-            
-            
-            toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
-            
-            #file.write(toc)      
-        
-       '''
-
-'''
-    
-    if url == acer:
-        # Check to see if file exists, if not create it
-        exists = os.path.isfile('acer_chromebook_prices.txt')
-        if exists == False:
-            #create the file
-            file= open('acer_chromebook_prices.txt', 'a', encoding='utf-8')
-            file.close()
-        
-        file= open('acer_chromebook_prices.txt', 'a')
-        
-        for item in soup.find_all("article"):
-            specs = item.find("ul", attrs={"class": "ctnTechSpecList"}).text.strip()
-            price = item.find("p", attrs={"class": "text-l"}).text.strip()
-            print("\nAcer Spin 13: ", price, sep='')
-            print(specs, "\n")
-            details = "\n" + str(datestamp) + "\tAcer Spin 13: \t" + price + "\t" + specs
-            file.write(details)
-        file.close()
-'''
-
-
-   
