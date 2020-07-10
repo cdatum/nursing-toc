@@ -83,8 +83,14 @@ journals = {'nep': {'title': 'Nursing Education Perspectives',    'url': 'http:/
            }
 
 for journal, details in journals.items():
-    for key in details:
-        print(key +": "+ details[key])
+    
+    title = details['title']
+    rss = details['url']
+    html = details['html']
+    
+    print(title)
+
+        
 
 
 targets = [nursing_edu_perspectives]
@@ -106,7 +112,7 @@ for url in targets:
         
         file = open('nursing_education_perspectives.html', 'r+')
         first_line = file.readline()
-        print("First Line: " + first_line)
+        #print("First Line: " + first_line)
         
         '''
         TODO
@@ -124,8 +130,7 @@ for url in targets:
         
         toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
         
-        file.write(toc)
-        
+        #file.write(toc)      
         
        
 
