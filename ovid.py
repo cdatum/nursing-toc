@@ -78,6 +78,15 @@ def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
 
+journals = {'nep': {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss','html': 'nursing_education_perspectives.html'},
+            'ajn': {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss','html': 'american_journal_of_nursing.html'}
+           }
+
+for journal, details in journals.items():
+    for key in details:
+        print(key +": "+ details[key])
+
+
 targets = [nursing_edu_perspectives]
 for url in targets:
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
