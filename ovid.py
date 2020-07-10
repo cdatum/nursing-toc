@@ -57,6 +57,16 @@ nursing_critical_care = "http://ovidsp.ovid.com/rss/journals/01244666/current.rs
 mcn = "http://ovidsp.ovid.com/rss/journals/00005721/current.rss"
 home_healthcare_now = "http://ovidsp.ovid.com/rss/journals/01845097/current.rss"
 
+journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss','html': 'nursing_education_perspectives.html'},
+            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss','html': 'american_journal_of_nursing.html'},
+            'nmie': {'title': 'Nursing Made Incredibly Easy', 'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html'},
+            'nur' : {'title': 'Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html'},
+            'ncc' : {'title': 'Nursing Critical Care', 'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html'},
+            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html'},
+            'hhn' : {'title': 'Home Healthcare Now', 'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html'},
+            
+           }
+
 # get a datestamp
 datestamp = datetime.today()
 
@@ -78,63 +88,94 @@ def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
 
-journals = {'nep': {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss','html': 'nursing_education_perspectives.html'},
-            'ajn': {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss','html': 'american_journal_of_nursing.html'}
-           }
+def process_rss_feed(title, url, html):
+    
+    page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
+    soup = BeautifulSoup(page,'xml') #xml parser
+        
+    journal_title = soup.title.get_text()   
+    page = soup.find_all('item')
+    exists = os.path.isfile(html)
+    if exists == False:
+    #create the file
+        file = open(html, 'w', encoding='utf-8')
+        file.close()
+            
+        file = open(html, 'r+')
+        first_line = file.readline()
+            
+        file.write(journal_title + "\n")
+            
+        for item in page:        
+            article_title = item.title.get_text()
+            description = item.description.get_text()
+            permalink = update_permalink(item.link.get_text())
+            
+            toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
+            
+            file.write(toc)  
+            
+        file.close()
+            
+
 
 for journal, details in journals.items():
     
     title = details['title']
-    rss = details['url']
+    url = details['url']
     html = details['html']
     
     print(title)
+    process_rss_feed(title,url,html)
 
         
 
 
-targets = [nursing_edu_perspectives]
-for url in targets:
-    page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
-    soup = BeautifulSoup(page,'xml') #xml parser
-    
-    journal_title = soup.title.get_text()   
-    page = soup.find_all('item')
-    
-    # For Nursing Education Perspectives
-    if url == nursing_edu_perspectives:
-        # Check to see if file exists, if not create it
-        exists = os.path.isfile('nursing_education_perspectives.html')
-        if exists == False:
-            #create the file
-            file = open('nursing_education_perspectives.html', 'r+', encoding='utf-8')
-            file.close()
         
-        file = open('nursing_education_perspectives.html', 'r+')
-        first_line = file.readline()
-        #print("First Line: " + first_line)
+'''
+    targets = [nursing_edu_perspectives]
+    for url in targets:
+        page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
+        soup = BeautifulSoup(page,'xml') #xml parser
         
-        '''
-        TODO
-        if first_line = journal_title then this is the most recent toc.
+        journal_title = soup.title.get_text()   
+        page = soup.find_all('item')
         
-        '''
-        file.write(journal_title + "\n")
+        # For Nursing Education Perspectives
+        if url == nursing_edu_perspectives:
+            # Check to see if file exists, if not create it
+            exists = os.path.isfile('nursing_education_perspectives.html')
+            if exists == False:
+                #create the file
+                file = open('nursing_education_perspectives.html', 'r+', encoding='utf-8')
+                file.close()
+            
+            file = open('nursing_education_perspectives.html', 'r+')
+            first_line = file.readline()
+            #print("First Line: " + first_line)
+ '''           
+'''        TODO
+            if first_line = journal_title then this is the most recent toc.
+            
+            '''
+            
+'''
+            file.write(journal_title + "\n")
+            
+            
+        for item in page:        
+            article_title = item.title.get_text()
+            description = item.description.get_text()
+            permalink = update_permalink(item.link.get_text())
+            
+            
+            toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
+            
+            #file.write(toc)      
         
-        
-    for item in page:        
-        article_title = item.title.get_text()
-        description = item.description.get_text()
-        permalink = update_permalink(item.link.get_text())
-        
-        
-        toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"
-        
-        #file.write(toc)      
-        
-       
+       '''
 
-    '''
+'''
     
     if url == acer:
         # Check to see if file exists, if not create it
