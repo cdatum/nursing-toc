@@ -3,17 +3,13 @@
 Created on Thu Jul  2 09:44:34 2020
 
 @author: Christopher Galluzzo
-Import RSS feeds and parse the table of contents
-into HTML
+Import RSS feeds from Ovid and parse the table of contents into HTML
 """
-
-#from time import sleep
 
 import urllib.request
 from bs4 import BeautifulSoup
 import os
-from datetime import datetime
-#import requests
+
 
 '''
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -50,31 +46,21 @@ from datetime import datetime
 '''
 # Set the URLs to open
 
-journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss','html': 'nursing_education_perspectives.html'},
-            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss','html': 'american_journal_of_nursing.html'},
-            'nmie': {'title': 'Nursing Made Incredibly Easy', 'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html'},
-            'nur' : {'title': 'Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html'},
-            'ncc' : {'title': 'Nursing Critical Care', 'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html'},
+journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html'},
+            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html'},
+            'nmie': {'title': 'Nursing Made Incredibly Easy',      'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html'},
+            'nur' : {'title': 'Nursing',                           'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html'},
+            'ncc' : {'title': 'Nursing Critical Care',             'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html'},
             'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html'},
-            'hhn' : {'title': 'Home Healthcare Now', 'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html'},
+            'hhn' : {'title': 'Home Healthcare Now',               'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html'},
             
            }
-
-# get a datestamp
-datestamp = datetime.today()
-
-
+# Update the permalink in the rss to include the ezproxy server info
 def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
 
-def check_issue():
-    #if first_line = journal_title then this is the most recent toc.
-    text = 'text'
-    return text
-
-def process_rss_feed(title, url, html):
-    
+def process_rss_feed(title, url, html):    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
         
@@ -88,18 +74,16 @@ def process_rss_feed(title, url, html):
         file.close()
             
     file = open(html, 'w', encoding='utf-8')    
-    file.write(journal_title + "\n")
+    file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
             
     for item in page:        
         article_title = item.title.get_text()
         description = item.description.get_text()
         permalink = update_permalink(item.link.get_text())
             
-        toc = "<div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div>"            
+        toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
         file.write(toc)          
-    file.close()
-            
-
+    file.close()          
 
 for journal, details in journals.items():    
     title = details['title']
