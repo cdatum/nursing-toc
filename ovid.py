@@ -79,10 +79,12 @@ def process_rss_feed(title, url, html):
     for item in page:        
         article_title = item.title.get_text()
         description = item.description.get_text()
+        #description = BeautifulSoup(item.description.get_text(),'html.parser').prettify()
+        #print(BeautifulSoup(description, 'html.parser').prettify())
         permalink = update_permalink(item.link.get_text())
             
         toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
-        file.write(toc)          
+        file.write(BeautifulSoup(toc, 'html.parser').prettify())
     file.close()          
 
 for journal, details in journals.items():    
