@@ -43,7 +43,21 @@ import os
 <link/><![CDATA[http://ovidsp.dc2.ovid.com/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&LSLINK=80&D=ovft&AN=00024776-202007000-00001]]>
 </item>
 
+Cover art
+nep - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00024776-202007000-00000%7cCV%7cC%7cjpg
+AJN - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00000446-202005000-00000|CV|C|jpg
+nmie -http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152258-202007000-00000|CV|C|jpg
+nur - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152193-202007000-00000|CV|C|jpg
+ncc - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01244666-202007000-00000|CV|C|jpg
+mcn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00005721-202007000-00000|CV|C|jpg
+hhn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01845097-202007000-00000|CV|C|jpg
+
 '''
+
+
+# TODO - get cover art from LWW using their RSS feed: https://journals.lww.com/neponline/pages/currenttoc.aspx
+# RSS example: https://journals.lww.com/neponline/_layouts/15/OAKS.Journals/feed.aspx?FeedType=CurrentIssue
+
 # Set the URLs to open
 
 journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html'},
@@ -60,27 +74,40 @@ def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
 
-def process_rss_feed(title, url, html):    
+# Create a URL for each issue's cover img based on the issn, date, and issue #
+def get_cover_art_url(url):
+    prefix = "http://ovidsp.dc2.ovid.com/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic="
+    suffix = "00000|CV|C|jpg"
+    url = prefix + url[91:110] + suffix
+    return url
+
+def process_rss_feed(title, url, html):
+    # Open RSS feed    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
-        
+    
+    # Get cover art url for this issue. Get first article fron issue and extract url
+    article = soup.find('item')
+    cover_img = get_cover_art_url(article.link.get_text())
+    
+    # Get the title    
     journal_title = soup.title.get_text()   
     page = soup.find_all('item')
     
-    # check to see if file exists. If not, create it
+    # Check to see if file exists locally. If not, create it
     exists = os.path.isfile(html)
     if exists == False:    
         file = open(html, 'w', encoding='utf-8')
         file.close()
             
+    # Open file and write data
     file = open(html, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
+    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )
             
     for item in page:        
         article_title = item.title.get_text()
         description = item.description.get_text()
-        #description = BeautifulSoup(item.description.get_text(),'html.parser').prettify()
-        #print(BeautifulSoup(description, 'html.parser').prettify())
         permalink = update_permalink(item.link.get_text())
             
         toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
