@@ -3,7 +3,7 @@
 Created on Thu Jul  2 09:44:34 2020
 
 @author: Christopher Galluzzo
-Import RSS feeds from Ovid and parse the table of contents into HTML
+Import RSS feeds from Healio/Slack and parse the table of contents into HTML
 """
 
 import urllib.request
@@ -55,22 +55,12 @@ def update_permalink(url):
     permalink = url.replace("https://www.healio.com","https://www-healio-com.ezproxy.ccac.edu")
     return permalink
 
-# Create a URL for each issue's cover img based on the issn, date, and issue #
-def get_cover_art_url(url):
-    prefix = "http://ovidsp.dc2.ovid.com/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic="
-    suffix = "00000|CV|C|jpg"
-    url = prefix + url[91:110] + suffix
-    return url
 
 def process_rss_feed(title, url, html):
     # Open RSS feed    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
-    
-    # Get cover art url for this issue. Get first article fron issue and extract url
-    article = soup.find('item')
-    cover_img = get_cover_art_url(article.link.get_text())
-    
+       
     # Get the title    
     journal_title = soup.title.get_text()   
     page = soup.find_all('item')
@@ -85,7 +75,6 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
-    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )
             
     for item in page:        
         article_title = item.title.get_text()
