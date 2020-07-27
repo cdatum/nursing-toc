@@ -7,6 +7,7 @@ Import RSS feeds from Ovid and parse the table of contents into HTML
 """
 
 import urllib.request
+from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import os
 
@@ -43,30 +44,21 @@ import os
 <link/><![CDATA[http://ovidsp.dc2.ovid.com/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&LSLINK=80&D=ovft&AN=00024776-202007000-00001]]>
 </item>
 
-Cover art
-nep - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00024776-202007000-00000%7cCV%7cC%7cjpg
-AJN - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00000446-202005000-00000|CV|C|jpg
-nmie -http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152258-202007000-00000|CV|C|jpg
-nur - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152193-202007000-00000|CV|C|jpg
-ncc - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01244666-202007000-00000|CV|C|jpg
-mcn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00005721-202007000-00000|CV|C|jpg
-hhn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01845097-202007000-00000|CV|C|jpg
 
 '''
 
-
-# TODO - get cover art from LWW using their RSS feed: https://journals.lww.com/neponline/pages/currenttoc.aspx
+# get cover art from LWW using their RSS feed: https://journals.lww.com/neponline/pages/currenttoc.aspx
 # RSS example: https://journals.lww.com/neponline/_layouts/15/OAKS.Journals/feed.aspx?FeedType=CurrentIssue
 
 # Set the URLs to open
 
-journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html'},
-            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html'},
-            'nmie': {'title': 'Nursing Made Incredibly Easy',      'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html'},
-            'nur' : {'title': 'Nursing',                           'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html'},
-            'ncc' : {'title': 'Nursing Critical Care',             'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html'},
-            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html'},
-            'hhn' : {'title': 'Home Healthcare Now',               'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html'},
+journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://journals.lww.com/neponline/pages/default.aspx'},
+            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://journals.lww.com/ajnonline/pages/default.aspx'},
+            'nmie': {'title': 'Nursing Made Incredibly Easy',      'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx'},
+            'nur' : {'title': 'Nursing',                           'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://journals.lww.com/nursing/pages/default.aspx'},
+            'ncc' : {'title': 'Nursing Critical Care',             'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html',             'cover': 'https://journals.lww.com/nursingcriticalcare/pages/default.aspx'},
+            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html',                 'cover': 'https://journals.lww.com/mcnjournal/pages/default.aspx'},
+            'hhn' : {'title': 'Home Healthcare Now',               'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html',               'cover': 'https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx'},
             
            }
 # Update the permalink in the rss to include the ezproxy server info
@@ -76,19 +68,27 @@ def update_permalink(url):
 
 # Create a URL for each issue's cover img based on the issn, date, and issue #
 def get_cover_art_url(url):
-    prefix = "http://ovidsp.dc2.ovid.com/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic="
-    suffix = "00000|CV|C|jpg"
-    url = prefix + url[91:110] + suffix
-    return url
+    page = urllib.request.urlopen(url,  timeout=20).read()
+    soup = BeautifulSoup(page,'lxml') #xml parser
+    srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
+    srcurl = srcurl[0].find('img')
+    srcurl = srcurl['src']
+    '''
+    From this to that:
+    https://cdn-images-journals.azureedge.net/nursing/XLargeThumb.00152193-202008000-00000.CV.jpeg
+    https://cdn-images-journals.azureedge.net/nursing/LargeRollover.00152193-202007000-00000.CV.jpeg
+    '''
+    srcurl = srcurl.replace("XLargeThumb","LargeRollover")
+    return srcurl
+       
 
-def process_rss_feed(title, url, html):
+def process_rss_feed(title, url, html, cover):
     # Open RSS feed    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
     # Get cover art url for this issue. Get first article fron issue and extract url
-    article = soup.find('item')
-    cover_img = get_cover_art_url(article.link.get_text())
+    cover_img = get_cover_art_url(cover)
     
     # Get the title    
     journal_title = soup.title.get_text()   
@@ -103,7 +103,7 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
-    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )
+    
             
     for item in page:        
         article_title = item.title.get_text()
@@ -112,10 +112,12 @@ def process_rss_feed(title, url, html):
             
         toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
         file.write(BeautifulSoup(toc, 'html.parser').prettify())
+    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
     file.close()          
 
 for journal, details in journals.items():    
     title = details['title']
     url = details['url']
     html = details['html']
-    process_rss_feed(title,url,html)
+    cover = details['cover']
+    process_rss_feed(title,url,html, cover)
