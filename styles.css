@@ -1,0 +1,8 @@
+.coverImg{ display: none;}
+.articleTitle {padding-top: 1.2em;}
+.journalTitle {font-size: 1.2em; font-weight: 900;}
+
+/*Make all cover images the same height*/
+.journalCover img {height: 203px !important;}
+
+h3 {font-weight: 700;}
