@@ -44,19 +44,10 @@ import os
 <link/><![CDATA[http://ovidsp.dc2.ovid.com/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&LSLINK=80&D=ovft&AN=00024776-202007000-00001]]>
 </item>
 
-Cover art
-nep - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00024776-202007000-00000%7cCV%7cC%7cjpg
-AJN - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=JHCLFPEGEGEBOOBHJPAKKEBFNBCNAA00&Graphic=00000446-202005000-00000|CV|C|jpg
-nmie -http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152258-202007000-00000|CV|C|jpg
-nur - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00152193-202007000-00000|CV|C|jpg
-ncc - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01244666-202007000-00000|CV|C|jpg
-mcn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=00005721-202007000-00000|CV|C|jpg
-hhn - http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/sp-4.07.0b/ovidweb.cgi?S=CNAPFPCGEGEBOOKGJPAKEGBFOIMMAA00&Graphic=01845097-202007000-00000|CV|C|jpg
 
 '''
 
-
-# TODO - get cover art from LWW using their RSS feed: https://journals.lww.com/neponline/pages/currenttoc.aspx
+# get cover art from LWW using their RSS feed: https://journals.lww.com/neponline/pages/currenttoc.aspx
 # RSS example: https://journals.lww.com/neponline/_layouts/15/OAKS.Journals/feed.aspx?FeedType=CurrentIssue
 
 # Set the URLs to open
@@ -82,6 +73,12 @@ def get_cover_art_url(url):
     srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
     srcurl = srcurl[0].find('img')
     srcurl = srcurl['src']
+    '''
+    From this to that:
+    https://cdn-images-journals.azureedge.net/nursing/XLargeThumb.00152193-202008000-00000.CV.jpeg
+    https://cdn-images-journals.azureedge.net/nursing/LargeRollover.00152193-202007000-00000.CV.jpeg
+    '''
+    srcurl = srcurl.replace("XLargeThumb","LargeRollover")
     return srcurl
        
 
@@ -106,7 +103,7 @@ def process_rss_feed(title, url, html, cover):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
-    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )
+    
             
     for item in page:        
         article_title = item.title.get_text()
@@ -115,6 +112,7 @@ def process_rss_feed(title, url, html, cover):
             
         toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
         file.write(BeautifulSoup(toc, 'html.parser').prettify())
+    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
     file.close()          
 
 for journal, details in journals.items():    
