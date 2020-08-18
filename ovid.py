@@ -97,7 +97,19 @@ def get_cover_art(url, html):
     image_data = 'data:image/jpg;base64,' + image_data
     return image_data
 
-       
+
+def format_filename(journal_title, html):
+    # this function creates a filename that is unique for each issue
+    begin = journal_title.find(")")
+    issue_details = journal_title[begin :]
+    issue_details = issue_details.replace("/","-")
+    issue_details = issue_details.replace(")","-")
+    issue_details = issue_details.replace(" ", "")
+    
+    #update html filename with issue_details
+    dot = html.find('.')
+    return html[:dot] + issue_details + ".html"
+              
 
 def process_rss_feed(title, url, html, cover): 
     # Open RSS feed    
@@ -107,18 +119,20 @@ def process_rss_feed(title, url, html, cover):
     # Get cover art url for this issue. Get first article fron issue and extract url
     cover_img = get_cover_art(cover, html)
     
-    # Get the title    
-    journal_title = soup.title.get_text()   
+    # Get journal title & vol info for naming the .html file
+    journal_title = soup.title.get_text()
+    file_title = format_filename(journal_title, html)   
+    
     page = soup.find_all('item')
     
     # Check to see if file exists locally. If not, create it
-    exists = os.path.isfile(html)
+    exists = os.path.isfile(file_title)
     if exists == False:    
-        file = open(html, 'w', encoding='utf-8')
+        file = open(file_title, 'w', encoding='utf-8')
         file.close()
             
     # Open file and write data
-    file = open(html, 'w', encoding='utf-8')    
+    file = open(file_title, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
     
             
