@@ -10,6 +10,9 @@ import urllib.request
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import os
+from PIL import Image
+import requests, base64
+from io import BytesIO
 
 
 '''
@@ -73,22 +76,36 @@ def get_cover_art_url(url):
     srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
     srcurl = srcurl[0].find('img')
     srcurl = srcurl['src']
-    '''
-    From this to that:
-    https://cdn-images-journals.azureedge.net/nursing/XLargeThumb.00152193-202008000-00000.CV.jpeg
-    https://cdn-images-journals.azureedge.net/nursing/LargeRollover.00152193-202007000-00000.CV.jpeg
-    '''
-    srcurl = srcurl.replace("XLargeThumb","LargeRollover")
+
     return srcurl
+
+def get_cover_art(url, html):
+    # this function locates the current cover img and converts it to a base64 string
+    # sometimes the remote img urls don't load the image, so let's embed it in our page
+    
+    img_url = get_cover_art_url(url)
+    # get current cover image and save it as a file
+    
+    response = requests.get(img_url)
+    img = Image.open(BytesIO(response.content))
+    
+    output = BytesIO()
+    img.save(output, format='JPEG')
+    im_data = output.getvalue()
+    image_data = base64.b64encode(im_data)
+    image_data = image_data.decode()
+    image_data = 'data:image/jpg;base64,' + image_data
+    return image_data
+
        
 
-def process_rss_feed(title, url, html, cover):
+def process_rss_feed(title, url, html, cover): 
     # Open RSS feed    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
     # Get cover art url for this issue. Get first article fron issue and extract url
-    cover_img = get_cover_art_url(cover)
+    cover_img = get_cover_art(cover, html)
     
     # Get the title    
     journal_title = soup.title.get_text()   
