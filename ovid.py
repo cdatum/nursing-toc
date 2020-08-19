@@ -108,7 +108,7 @@ def format_filename(journal_title, html):
     
     #update html filename with issue_details
     dot = html.find('.')
-    return html[:dot] + issue_details + ".html"
+    return "toc/" + html[:dot] + issue_details + ".html"
               
 
 def process_rss_feed(title, url, html, cover): 
