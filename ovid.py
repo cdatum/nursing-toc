@@ -69,7 +69,7 @@ def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
 
-# Create a URL for each issue's cover img based on the issn, date, and issue #
+# Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
 def get_cover_art_url(url):
     page = urllib.request.urlopen(url,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser
@@ -81,10 +81,10 @@ def get_cover_art_url(url):
 
 def get_cover_art(url, html):
     # this function locates the current cover img and converts it to a base64 string
-    # sometimes the remote img urls don't load the image, so let's embed it in our page
+    # sometimes the remote img urls don't load the image, so this is a workaround that embeds it in our page
     
     img_url = get_cover_art_url(url)
-    # get current cover image and save it as a file
+    # get current cover image
     
     response = requests.get(img_url)
     img = Image.open(BytesIO(response.content))
@@ -131,20 +131,20 @@ def process_rss_feed(title, url, html, cover):
         file = open(file_title, 'w', encoding='utf-8')
         file.close()
             
-    # Open file and write data
-    file = open(file_title, 'w', encoding='utf-8')    
-    file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
-    
-            
-    for item in page:        
-        article_title = item.title.get_text()
-        description = item.description.get_text()
-        permalink = update_permalink(item.link.get_text())
-            
-        toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
-        file.write(BeautifulSoup(toc, 'html.parser').prettify())
-    file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
-    file.close()          
+        # Open file and write data
+        file = open(file_title, 'w', encoding='utf-8')    
+        file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
+        
+                
+        for item in page:        
+            article_title = item.title.get_text()
+            description = item.description.get_text()
+            permalink = update_permalink(item.link.get_text())
+                
+            toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
+            file.write(BeautifulSoup(toc, 'html.parser').prettify())
+        file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
+        file.close()          
 
 for journal, details in journals.items():    
     title = details['title']
