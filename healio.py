@@ -60,7 +60,7 @@ def process_rss_feed(title, url, html):
     # Open RSS feed    
     page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
-       
+    
     # Get the title    
     journal_title = soup.title.get_text()   
     page = soup.find_all('item')
