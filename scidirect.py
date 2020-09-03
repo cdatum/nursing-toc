@@ -69,15 +69,30 @@ def parse_author(description):
     
     return author
 
+def format_filename(journal_title, html):
+    # this function creates a filename that is unique for each issue
+    begin = journal_title.find(")")
+    issue_details = journal_title[begin :]
+    issue_details = issue_details.replace("/","-")
+    issue_details = issue_details.replace(")","-")
+    issue_details = issue_details.replace(" ", "")
+    
+    #update html filename with issue_details
+    dot = html.find('.')
+    return "toc/" + html[:dot] + issue_details + ".html"
+              
+
 def process_rss_feed(title, url, html):    
     # Open RSS feed    
     url = "http://rss.sciencedirect.com/publication/science/18761399"
     req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
     page = urlopen(req).read()
     soup = BeautifulSoup(page,'xml') #xml parser
+    #print(soup)
 
-    # Get the title    
+    # Get journal title & vol info for naming the .html file 
     journal_title = soup.title.get_text()
+    file_title = format_filename(journal_title, html)   
     page = soup.find_all('item')
     
     
