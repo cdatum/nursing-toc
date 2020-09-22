@@ -112,7 +112,7 @@ def process_rss_feed(title, url, html):
         description = item.description.get_text()
         author = parse_author(description)
                             
-        toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc scidirectDesc'><div class='author'><span>" + author + "</span></div></div></div>"            
+        toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc scidirectDesc'><div class='author'><span>" + author + "</span></div></div></div>"            
         file.write(BeautifulSoup(toc, 'html.parser').prettify())
     file.close()          
 
