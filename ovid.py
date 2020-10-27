@@ -144,7 +144,8 @@ def process_rss_feed(title, url, html, cover):
             toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
             file.write(BeautifulSoup(toc, 'html.parser').prettify())
         file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
-        file.close()          
+        file.close()
+        print(title + "\n") # print the title that was just processed          
 
 for journal, details in journals.items():    
     title = details['title']
