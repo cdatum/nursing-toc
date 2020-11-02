@@ -81,7 +81,7 @@ def process_rss_feed(title, url, html):
         permalink = update_permalink(item.link.get_text())
         author = item.creator.get_text()
                     
-        toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + author + "</span></div></div></div>"            
+        toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + author + "</span></div></div></div>\n"            
         file.write(BeautifulSoup(toc, 'html.parser').prettify())
     file.close()          
 
