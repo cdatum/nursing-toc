@@ -70,15 +70,17 @@ def update_permalink(url):
     return permalink
 
 # Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
-def get_cover_art_url(url):
-    page = urllib.request.urlopen(url,  timeout=20).read()
+def get_cover_art_url(url):    
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser
     srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
     srcurl = srcurl[0].find('img')
-    srcurl = srcurl['src']
-
+    srcurl = srcurl['src']   
+   
     return srcurl
-
+    
+    
 def get_cover_art(url, html):
     # this function locates the current cover img and converts it to a base64 string
     # sometimes the remote img urls don't load the image, so this is a workaround that embeds it in our page
@@ -112,12 +114,14 @@ def format_filename(journal_title, html):
               
 
 def process_rss_feed(title, url, html, cover): 
-    # Open RSS feed    
-    page = urllib.request.urlopen(url, timeout=20).read() #.decode('utf-8')
+    # Open RSS feed
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    
+    page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
     # Get cover art url for this issue. Get first article fron issue and extract url
     cover_img = get_cover_art(cover, html)
+    
     
     # Get journal title & vol info for naming the .html file
     journal_title = soup.title.get_text()
