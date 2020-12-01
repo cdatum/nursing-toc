@@ -68,7 +68,7 @@ journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http:
 def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
-
+'''
 # Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
 def get_cover_art_url(url):    
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -99,7 +99,7 @@ def get_cover_art(url, html):
     image_data = 'data:image/jpg;base64,' + image_data
     return image_data
 
-
+'''
 def format_filename(journal_title, html):
     # this function creates a filename that is unique for each issue
     begin = journal_title.find(")")
@@ -113,14 +113,14 @@ def format_filename(journal_title, html):
     return "toc/" + html[:dot] + issue_details + ".html"
               
 
-def process_rss_feed(title, url, html, cover): 
+def process_rss_feed(title, url, html): 
     # Open RSS feed
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    
     page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
     # Get cover art url for this issue. Get first article fron issue and extract url
-    cover_img = get_cover_art(cover, html)
+    cover_img = ""
     
     
     # Get journal title & vol info for naming the .html file
@@ -156,4 +156,4 @@ for journal, details in journals.items():
     url = details['url']
     html = details['html']
     cover = details['cover']
-    process_rss_feed(title,url,html, cover)
+    process_rss_feed(title,url,html)
