@@ -69,19 +69,18 @@ journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http
 def update_permalink(url):
     permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
     return permalink
-'''
+
 # Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
 def get_cover_art_url(url):    
-    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
     page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser
     srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
     srcurl = srcurl[0].find('img')
-    srcurl = srcurl['src']   
-   
+    srcurl = srcurl['src'] 
     return srcurl
-    
-    
+
+  
 def get_cover_art(url, html):
     # this function locates the current cover img and converts it to a base64 string
     # sometimes the remote img urls don't load the image, so this is a workaround that embeds it in our page
@@ -100,7 +99,7 @@ def get_cover_art(url, html):
     image_data = 'data:image/jpg;base64,' + image_data
     return image_data
 
-'''
+
 def format_filename(journal_title, html):
     # this function creates a filename that is unique for each issue
     begin = journal_title.find(")")
@@ -114,14 +113,14 @@ def format_filename(journal_title, html):
     return "toc/" + html[:dot] + issue_details + ".html"
               
 
-def process_rss_feed(title, url, html): 
+def process_rss_feed(title, url, html, cover): 
     # Open RSS feed
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    
     page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
     # Get cover art url for this issue. Get first article fron issue and extract url
-    cover_img = ""
+    cover_img = get_cover_art(cover, html)
     
     
     # Get journal title & vol info for naming the .html file
@@ -157,4 +156,4 @@ for journal, details in journals.items():
     url = details['url']
     html = details['html']
     cover = details['cover']
-    process_rss_feed(title,url,html)
+    process_rss_feed(title,url,html,cover)
