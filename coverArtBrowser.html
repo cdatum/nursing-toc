@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lippincott Cover Art Tool</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script>
-            // Base64 image encoder
-            function encodeImageFileAsURL(element) {
-                // output goes here
-                var baseoutput = document.getElementById('base');
 
-                //clear any previous entry
-                baseoutput.innerHTML = "";
+<head>
+  <title>Lippincott Cover Art Tool</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script>
+    // Base64 image encoder
+    function encodeImageFileAsURL(element) {
+      // output goes here
+      var baseoutput = document.getElementById('base');
 
-                var file = element.files[0];
-                var reader = new FileReader();
-                reader.onloadend = function () {
-                    var output = reader.result
-                    baseoutput.innerHTML = output;
-                    console.log("BASE64", output)
-                }
-                reader.readAsDataURL(file);
-            }
-        </script>
+      //clear any previous entry
+      baseoutput.innerHTML = "";
 
-
-        <script>
-            $(document).ready(function () {
-                console.log("ready!");
-                var links = $('li > a');
-                console.log(links);
-
-                links.click(function (e) {
-                    e.preventDefault();
-                    var url = $(this).attr('href');
-                    console.log(url);
-                    $("#myIframe").attr('src', url);
-                });
-            });
+      var file = element.files[0];
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        var output = reader.result
+        baseoutput.innerHTML = output;
+        console.log("BASE64", output)
+      }
+      reader.readAsDataURL(file);
+    }
+  </script>
 
 
-        </script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="col-md-4" >
-                <div class="row">
-                    <ul class="titleLinks">
-                        <li> <a href="https://journals.lww.com/neponline/pages/default.aspx">Nursing Education Perspectives</a></li>
-                        <li> <a href="https://journals.lww.com/ajnonline/pages/default.aspx">AJN - American Journal of Nursing</a></li>
-                        <li> <a href="https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx">Nursing Made Incredibly Easy</a></li>
-                        <li><a href="https://journals.lww.com/nursing/pages/default.aspx">Nursing</a></li>
-                        <li><a href="https://journals.lww.com/nursingcriticalcare/pages/default.aspx">Nursing Critical Care</a></li>
-                        <li><a href="https://journals.lww.com/mcnjournal/pages/default.aspx">MCN: American Journal of Maternal Child Nursing</a></li>
-                        <li><a href="https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx">Home Healthcare Now</a><li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <input type="file" onchange="encodeImageFileAsURL(this)" />
-                    <hr>
-                    <div id="base"></div>                        
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <iframe id="myIframe" src="" scrollbars height="800" width="1000" border="0" ></iframe>
-                </div>
+  <script>
+    $(document).ready(function() {
+      console.log("ready!");
+      var links = $('li > a');
+      console.log(links);
 
-            </div>
+      links.click(function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        console.log(url);
+        $("#myIframe").attr('src', url);
+      });
+    });
+  </script>
+</head>
 
-        </div>
+<body>
+  <div class="container">
+    <div class="col-md-4">
+      <div class="row">
+        <ul class="titleLinks">
+          <li><a href="https://journals.lww.com/neponline/pages/default.aspx">Nursing Education Perspectives</a></li>
+          <li><a href="https://journals.lww.com/ajnonline/pages/default.aspx">AJN - American Journal of Nursing</a></li>
+          <li><a href="https://journals.lww.com/dccnjournal/pages/default.aspx">Dimensions of Critical Care Nursing</a></li>
+          <li><a href="https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx">Home Healthcare Now</a></li>
+          <li><a href="https://journals.lww.com/mcnjournal/pages/default.aspx">MCN: American Journal of Maternal Child Nursing</a></li>
+          <li><a href="https://journals.lww.com/nursing/pages/default.aspx">Nursing</a></li>
+          <li><a href="https://journals.lww.com/nursingcriticalcare/pages/default.aspx">Nursing Critical Care</a></li>
+          <li><a href="https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx">Nursing Made Incredibly Easy</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <input type="file" onchange="encodeImageFileAsURL(this)" />
+        <hr>
+        <div id="base"></div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <iframe id="myIframe" src="" scrollbars height="800" width="1000" border="0"></iframe>
+      </div>
 
     </div>
+
+  </div>
+
+  </div>
 </body>
+
 </html>
