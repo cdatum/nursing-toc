@@ -55,13 +55,14 @@ from io import BytesIO
 
 # Set the URLs to open
 
-journals = {'nep' : {'title': 'Nursing Education Perspectives',    'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://journals.lww.com/neponline/pages/default.aspx'},
-            'ajn' : {'title': 'AJN - American Journal of Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://journals.lww.com/ajnonline/pages/default.aspx'},
-            'nmie': {'title': 'Nursing Made Incredibly Easy',      'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx'},
-            'nur' : {'title': 'Nursing',                           'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://journals.lww.com/nursing/pages/default.aspx'},
-            'ncc' : {'title': 'Nursing Critical Care',             'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html',             'cover': 'https://journals.lww.com/nursingcriticalcare/pages/default.aspx'},
-            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html',                 'cover': 'https://journals.lww.com/mcnjournal/pages/default.aspx'},
-            'hhn' : {'title': 'Home Healthcare Now',               'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html',               'cover': 'https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx'},
+journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://journals.lww.com/neponline/pages/default.aspx'},
+            'ajn' : {'title': 'AJN - American Journal of Nursing',  'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://journals.lww.com/ajnonline/pages/default.aspx'},
+            'nmie': {'title': 'Nursing Made Incredibly Easy',       'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx'},
+            'nur' : {'title': 'Nursing',                            'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://journals.lww.com/nursing/pages/default.aspx'},
+            'ncc' : {'title': 'Nursing Critical Care',              'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html',             'cover': 'https://journals.lww.com/nursingcriticalcare/pages/default.aspx'},
+            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html',                  'cover': 'https://journals.lww.com/mcnjournal/pages/default.aspx'},
+            'hhn' : {'title': 'Home Healthcare Now',                'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html',               'cover': 'https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx'},
+            'dccn': {'title': 'Dimensions of Critical Care Nursing','url': 'http://ovidsp.ovid.com/rss/journals/00003465/current.rss', 'html': 'dimensions_critical_care_nursing.html',  'cover': 'https://journals.lww.com/dccnjournal/pages/default.aspx'}
             
            }
 # Update the permalink in the rss to include the ezproxy server info
