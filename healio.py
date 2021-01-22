@@ -75,6 +75,9 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')    
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
+    
+    # List to hold articles
+    articles = []
             
     for item in page:        
         article_title = item.title.get_text()
@@ -82,7 +85,15 @@ def process_rss_feed(title, url, html):
         author = item.creator.get_text()
                     
         toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + author + "</span></div></div></div>\n"            
-        file.write(BeautifulSoup(toc, 'html.parser').prettify())
+        articles.append(toc)
+        #file.write(BeautifulSoup(toc, 'html.parser').prettify())
+    
+    # articles in the rss feed are out of order, reverse the list to put them in proper order
+    articles.reverse()
+    
+    # write each article to the html file
+    for entry in articles:
+        file.write(BeautifulSoup(entry, 'html.parser').prettify())
     file.close()          
 
 for journal, details in healio.items():    
