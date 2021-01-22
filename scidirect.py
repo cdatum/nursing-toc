@@ -105,15 +105,27 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')  
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
-            
-    for item in page:        
+    
+    # Create a list to hold article details
+    articles = []
+    for item in page:
+        # Extract article details
         article_title = item.title.get_text()
         permalink = update_permalink(item.link.get_text())
         description = item.description.get_text()
-        author = parse_author(description)
-                            
+        author = parse_author(description)      
+        
+        # Build the html                   
         toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc scidirectDesc'><div class='author'><span>" + author + "</span></div></div></div>\n"            
-        file.write(BeautifulSoup(toc, 'html.parser').prettify())
+        
+        # Append each article to list
+        articles.append(toc)      
+        
+    # the source xml lists the last article first, let's reverse that
+    articles.reverse()    
+    for entry in articles:
+        # Write each article to the html file        
+        file.write(BeautifulSoup(entry, 'html.parser').prettify())
     file.close()          
 
 for journal, details in scidirect.items():    
