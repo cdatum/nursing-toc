@@ -89,7 +89,7 @@ def process_rss_feed(title, url, html):
         #file.write(BeautifulSoup(toc, 'html.parser').prettify())
     
     # articles in the rss feed are out of order, reverse the list to put them in proper order
-    articles.reverse()
+    #articles.reverse()
     
     # write each article to the html file
     for entry in articles:
