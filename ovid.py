@@ -119,28 +119,28 @@ def process_rss_feed(title, url, html, cover):
     page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
     
-    # Get cover art url for this issue. Get first article fron issue and extract url
-    cover_img = get_cover_art(cover, html)
-    
     
     # Get journal title & vol info for naming the .html file
     journal_title = soup.title.get_text()
     file_title = format_filename(journal_title, html)   
-    
-    page = soup.find_all('item')
-    
-    # Check to see if file exists locally. If not, create it
+            
+    # Check to see if this month's file exists locally. If not, create it
     exists = os.path.isfile(file_title)
     if exists == False:    
         file = open(file_title, 'w', encoding='utf-8')
         file.close()
-            
+        
+        # Get cover art url for this issue. Get first article fron issue and extract url
+        cover_img = get_cover_art(cover, html)       
+                   
         # Open file and write data
         file = open(file_title, 'w', encoding='utf-8')    
         file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
         
-                
-        for item in page:        
+        # Find all of the articles and put them in a list
+        article_list = soup.find_all('item')
+                        
+        for item in article_list:        
             article_title = item.title.get_text()
             description = item.description.get_text()
             permalink = update_permalink(item.link.get_text())
