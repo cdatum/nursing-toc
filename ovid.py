@@ -75,7 +75,7 @@ def get_cover_art_url(url):
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
     page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser
-    srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")
+    srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")  
     srcurl = srcurl[0].find('img')
     srcurl = srcurl['src'] 
     return srcurl
@@ -122,7 +122,7 @@ def process_rss_feed(title, url, html, cover):
     
     # Get journal title & vol info for naming the .html file
     journal_title = soup.title.get_text()
-    file_title = format_filename(journal_title, html)   
+    file_title = format_filename(journal_title, html)
             
     # Check to see if this month's file exists locally. If not, create it
     exists = os.path.isfile(file_title)
