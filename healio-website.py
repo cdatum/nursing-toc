@@ -5,19 +5,22 @@ Created on Tue Apr 27 11:43:37 2021
 @author: cgalluzzo
 """
 
-# This script scrapes the Healio current table of contents
+# This script scrapes the Healio site for current table of contents (they discontinued the RSS)
 # Healio website https://journals.healio.com/toc/jne/60/4
 
 import urllib.request
 from bs4 import BeautifulSoup
 import os
 
+'''
+Directions:
 
+    1. Download the current table of contents page ("Save page as...") from the healio site (https://journals.healio.com/toc/jne/60/4) as 'healio.html'
+    2. Place the healio.html file in the same directory as this script
+    3. Run script
+    4. View the resulting html in journal_nursing_education.html
 
-# Healio -Journal of Nursing Education: https://www.healio.com/sws/feed/journal/jne
-# https://www-healio-com.ezproxy.ccac.edu/
-# https://www-healio-com.ezproxy.ccac.edu/nursing/journals/jne/2020-7-59-7/9d200cd8-06cd-44b3-8f29-31377ffaaa17/using-social-media-to-engage-nurse-practitioner-students-in-complex-health-care-topics
-
+'''
 # Set the URLs to open
 
 healio = {'jne' : {'title': 'Journal of Nursing Education',    'url': 'healio.html', 'html': 'journal_nursing_education.html'} }
