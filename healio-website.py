@@ -30,51 +30,51 @@ def process_rss_feed(title, url, html):
 
     # List to hold articles
     articles = []
-    
-    # Open html page for parsing 
-    page = open(url, 'r', encoding='utf-8') 
+
+    # Open html page for parsing
+    page = open(url, 'r', encoding='utf-8')
     soup = BeautifulSoup(page,'lxml') #xml parser
     page.close()
-    
-    # Get the title    
+
+    # Get the title
     entries = soup.find_all('section', class_='table-of-content__section')
-    
+
     for item in entries:
         #Get the title, permalink, and authors
         #Load each article into the 'articles' list and then write all of them to the html file
         article_title = item.find('h5', class_='issue-item__title')
-        permalink = 'https://journals-healio-com.ezproxy.ccac.edu' + article_title.contents[0]['href']                  
+        permalink = 'https://journals-healio-com.ezproxy.ccac.edu' + article_title.contents[0]['href']
         article_title = article_title.get_text()
-        
+
         #Get author names. Some have multiple authors; those go in a list
-        authors = item.find('ul', class_='loa').find_all('li') #list of authors     
-        names = ''        
+        authors = item.find('ul', class_='loa').find_all('li') #list of authors
+        names = ''
         for author in authors:
             #names.append(author.get_text())
             names += author.get_text()
-              
-        toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + names + "</span></div></div></div>\n"            
+
+        toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + names + "</span></div></div></div>\n"
         articles.append(toc)
-    
-    
+
+
     # Check to see if the output file exists locally. If not, create it
     exists = os.path.isfile(html)
-    if exists == False:    
+    if exists == False:
         file = open(html, 'w', encoding='utf-8')
         file.close()
-            
+
     # Open file and write data
-    file = open(html, 'w', encoding='utf-8')    
+    file = open(html, 'w', encoding='utf-8')
     file.write("<div class='journalTitle'>" + title + "</div>\n")
-    
+
     # write each article to the html file
     for entry in articles:
         file.write(BeautifulSoup(entry, 'html.parser').prettify())
-    file.close() 
-    
+    file.close()
 
 
-for journal, details in healio.items():    
+
+for journal, details in healio.items():
     title = details['title']
     url = details['url']
     html = details['html']
