@@ -73,7 +73,9 @@ def process_rss_feed(title, url, html):
     file.close()
 
 
-
+print ("Instructions: 1: Download webpage at https://journals.healio.com/toc/jne/current")
+print ("2: Save it as 'healio.html' ")
+print ("3: run this script then open journal_nursing_education.html to access the HTML")
 for journal, details in healio.items():
     title = details['title']
     url = details['url']
