@@ -38,7 +38,7 @@ def process_rss_feed(title, url, html):
 
     # Get the title
     entries = soup.find_all('section', class_='table-of-content__section')
-
+    
     for item in entries:
         #Get the title, permalink, and authors
         #Load each article into the 'articles' list and then write all of them to the html file
@@ -48,10 +48,15 @@ def process_rss_feed(title, url, html):
 
         #Get author names. Some have multiple authors; those go in a list
         authors = item.find('ul', class_='loa').find_all('li') #list of authors
+        print(len(authors))
         names = ''
+        
+        # if an article doesn't have authors, this might throw an error. Just erase the article from the healio.html file or insert placeholder
         for author in authors:
             #names.append(author.get_text())
             names += author.get_text()
+
+
 
         toc = "\n<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + "<div class='author'><span>" + names + "</span></div></div></div>\n"
         articles.append(toc)
