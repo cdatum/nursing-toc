@@ -111,6 +111,7 @@ def process_rss_feed(title, url, html):
     for item in page:
         # Extract article details
         article_title = item.title.get_text()
+        print(article_title)
         permalink = update_permalink(item.link.get_text())
         description = item.description.get_text()
         author = parse_author(description)      

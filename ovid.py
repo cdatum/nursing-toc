@@ -67,8 +67,8 @@ journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http
            }
 # Update the permalink in the rss to include the ezproxy server info
 def update_permalink(url):
-    permalink = url.replace("http://ovidsp.dc2.ovid.com/ovidweb.cgi","http://ovidsp.dc2.ovid.com.ezproxy.ccac.edu/ovidweb.cgi")
-    return permalink
+    permalink = url.replace("ovid.com/","ovid.com.ezproxy.ccac.edu/")
+    return permalink.replace("https","http")
 
 # Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
 def get_cover_art_url(url):    
@@ -144,6 +144,8 @@ def process_rss_feed(title, url, html, cover):
             article_title = item.title.get_text()
             description = item.description.get_text()
             permalink = update_permalink(item.link.get_text())
+
+            
                 
             toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
             file.write(BeautifulSoup(toc, 'html.parser').prettify())
