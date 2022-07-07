@@ -43,12 +43,13 @@ def process_rss_feed(title, url, html):
         #Get the title, permalink, and authors
         #Load each article into the 'articles' list and then write all of them to the html file
         article_title = item.find('h5', class_='issue-item__title')
-        permalink = 'https://journals-healio-com.ezproxy.ccac.edu' + article_title.contents[0]['href']
+        permalink = 'https://journals-healio-com.ezproxy.ccac.edu/doi/' + article_title.contents[0]['id']
         article_title = article_title.get_text()
+        
 
         #Get author names. Some have multiple authors; those go in a list
         authors = item.find('ul', class_='loa').find_all('li') #list of authors
-        print(len(authors))
+        
         names = ''
         
         # if an article doesn't have authors, this might throw an error. Just erase the article from the healio.html file or insert placeholder
