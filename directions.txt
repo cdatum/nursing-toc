@@ -1,0 +1,13 @@
+FOR OVID TITLES
+Run the ovid.py script and note any titles that are listed in the console. The titles listed there have new toc that need to be updated on the LibGuide.
+
+FOR SCIDIRECT'S CLINICAL SIMULATION
+Check the journal's website to see the current table of contents https://ezproxy.ccac.edu/login?url=https://www.sciencedirect.com/journal/clinical-simulation-in-nursing 
+
+This RSS feed tends to run a month or two in advance, so running  the scidirect-clinSim.py script before checking the website may  bump this' month's titles off of the rss feed. If the titles on the current month's toc don't appear in the clinical_simulation_nursing.html file, run the script and then check clinical_simulation_nursing.html for the toc entires.
+
+
+FOR HEALIO'S JOURNAL OF NURSING EDUCATION
+1: Download webpage at https://journals.healio.com/toc/jne/current
+2: Save it as 'healio.html'
+3: run the healio-website-JNE.py script then open journal_nursing_education.html to access the HTML
