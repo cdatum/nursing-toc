@@ -51,7 +51,9 @@ Scidirect XML
 
 # Set the URLs to open
 
-scidirect = {'csn' : {'title': 'Clinical Simulation in Nursing',    'url': 'http://rss.sciencedirect.com/publication/science/18761399', 'html': 'clinical_simulation_nursing.html'} }
+scidirect = {'csn' : {'title': 'Clinical Simulation in Nursing',     'url': 'https://rss.sciencedirect.com/publication/science/18761399', 'html': 'clinical_simulation_nursing.html'},
+             'tln' : {'title': 'Teaching and Learning in Nursing',   'url': 'https://rss.sciencedirect.com/publication/science/15573087', 'html': 'teaching_learning_nursing.html'}
+             }
 
 
 # Update the permalink in the rss to include the ezproxy server info
@@ -84,11 +86,11 @@ def format_filename(journal_title, html):
 
 def process_rss_feed(title, url, html):    
     # Open RSS feed    
-    url = "http://rss.sciencedirect.com/publication/science/18761399"
+    #url = "http://rss.sciencedirect.com/publication/science/18761399"
     req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
     page = urlopen(req).read()
     soup = BeautifulSoup(page,'xml') #xml parser
-    #print(soup)
+    print(soup)
 
     # Get journal title & vol info for naming the .html file 
     journal_title = soup.title.get_text()
@@ -105,6 +107,7 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'w', encoding='utf-8')  
     file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
+   
     
     # Create a list to hold article details
     articles = []
