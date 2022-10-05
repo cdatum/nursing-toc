@@ -51,8 +51,8 @@ Scidirect XML
 
 # Set the URLs to open
 
-scidirect = {'csn' : {'title': 'Clinical Simulation in Nursing',     'url': 'https://rss.sciencedirect.com/publication/science/18761399', 'html': 'clinical_simulation_nursing.html'},
-             'tln' : {'title': 'Teaching and Learning in Nursing',   'url': 'https://rss.sciencedirect.com/publication/science/15573087', 'html': 'teaching_learning_nursing.html'}
+scidirect = {'csn' : {'title': 'Clinical Simulation in Nursing',     'url': 'https://rss.sciencedirect.com/publication/science/18761399', 'html': 'scidirect-clin_sim.html'},
+             'tln' : {'title': 'Teaching and Learning in Nursing',   'url': 'https://rss.sciencedirect.com/publication/science/15573087', 'html': 'scidirect-teaching_learning.html'}
              }
 
 
