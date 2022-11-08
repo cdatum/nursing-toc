@@ -45,17 +45,26 @@ def process_rss_feed(title, url, html):
         article_title = item.find('h5', class_='issue-item__title')
         permalink = 'https://journals-healio-com.ezproxy.ccac.edu/doi/' + article_title.contents[0]['id']
         article_title = article_title.get_text()
-        
-
-        #Get author names. Some have multiple authors; those go in a list
-        authors = item.find('ul', class_='loa').find_all('li') #list of authors
+        print("\n" + article_title)
         
         names = ''
         
-        # if an article doesn't have authors, this might throw an error. Just erase the article from the healio.html file or insert placeholder
-        for author in authors:
-            #names.append(author.get_text())
-            names += author.get_text()
+        '''
+        if class="issue-item__loa is present, process list of authors
+        
+        if (item.find(div, class_='issue-item__loa'))
+        
+        '''
+        # Some articles don't have a listed author. This handles both situations
+        if (item.find('div', class_='issue-item__loa')):
+            #Get author names. Some have multiple authors; those go in a list
+            authors = item.find('ul', class_='loa').find_all('li') #list of authors
+            print(len(authors))
+            
+            # if an article doesn't have authors, this might throw an error. Just erase the article from the healio.html file or insert placeholder
+            for author in authors:
+                names += author.get_text()
+                #names.append(author.get_text())
 
 
 
@@ -76,6 +85,7 @@ def process_rss_feed(title, url, html):
     # write each article to the html file
     for entry in articles:
         file.write(BeautifulSoup(entry, 'html.parser').prettify())
+        
     file.close()
 
 
