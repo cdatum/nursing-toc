@@ -55,14 +55,13 @@ from io import BytesIO
 
 # Set the URLs to open
 
-journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://journals.lww.com/neponline/pages/default.aspx'},
-            'ajn' : {'title': 'AJN - American Journal of Nursing',  'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://journals.lww.com/ajnonline/pages/default.aspx'},
-            'nmie': {'title': 'Nursing Made Incredibly Easy',       'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://journals.lww.com/nursingmadeincrediblyeasy/pages/default.aspx'},
-            'nur' : {'title': 'Nursing',                            'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://journals.lww.com/nursing/pages/default.aspx'},
-            'ncc' : {'title': 'Nursing Critical Care',              'url': 'http://ovidsp.ovid.com/rss/journals/01244666/current.rss', 'html': 'nursing_critical_care.html',             'cover': 'https://journals.lww.com/nursingcriticalcare/pages/default.aspx'},
-            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html',                  'cover': 'https://journals.lww.com/mcnjournal/pages/default.aspx'},
-            'hhn' : {'title': 'Home Healthcare Now',                'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html',               'cover': 'https://journals.lww.com/homehealthcarenurseonline/pages/default.aspx'},
-            'dccn': {'title': 'Dimensions of Critical Care Nursing','url': 'http://ovidsp.ovid.com/rss/journals/00003465/current.rss', 'html': 'dimensions_critical_care_nursing.html',  'cover': 'https://journals.lww.com/dccnjournal/pages/default.aspx'}
+journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00024776-000000000-00000'},
+            'ajn' : {'title': 'AJN - American Journal of Nursing',  'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00000446-000000000-00000'},
+            'nmie': {'title': 'Nursing Made Incredibly Easy',       'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00152258-000000000-00000'},
+            'nur' : {'title': 'Nursing',                            'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00152193-000000000-00000'},            
+            'mcn' : {'title': 'MCN: American Journal of Maternal Child Nursing', 'url': 'http://ovidsp.ovid.com/rss/journals/00005721/current.rss', 'html': 'mcn.html',                  'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00005721-000000000-00000'},
+            'hhn' : {'title': 'Home Healthcare Now',                'url': 'http://ovidsp.ovid.com/rss/journals/01845097/current.rss', 'html': 'home_healthcare_now.html',               'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=01845097-000000000-00000'},
+            'dccn': {'title': 'Dimensions of Critical Care Nursing','url': 'http://ovidsp.ovid.com/rss/journals/00003465/current.rss', 'html': 'dimensions_critical_care_nursing.html',  'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00003465-000000000-00000'}
             
            }
 # Update the permalink in the rss to include the ezproxy server info
@@ -70,6 +69,7 @@ def update_permalink(url):
     permalink = url.replace("ovid.com/","ovid.com.ezproxy.ccac.edu/")
     return permalink.replace("https","http")
 
+'''
 # Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
 def get_cover_art_url(url):    
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
@@ -80,7 +80,28 @@ def get_cover_art_url(url):
     srcurl = srcurl['src'] 
     return srcurl
 
-  
+
+# Get the URL for the current issue's cover img (e.g., <img src="") based on the issn, date, and issue #
+def get_cover_art_url(url):
+     
+    #req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
+    
+    page = urllib.request.urlopen(req,  timeout=20).read()
+    soup = BeautifulSoup(page,'lxml') #xml parser
+    
+    srcurl = soup.find_all('div', class_="ejp-footer__smart-control-section-image-container")    
+    srcurl = srcurl[0].find('img')
+    srcurl = srcurl['src']
+        
+    #img src begins with gibberish; find where https begins
+    url_start = srcurl.find('https://')
+    
+    img_url = srcurl[url_start:]
+    print("103: " + img_url)
+    
+    return img_url
+
 def get_cover_art(url, html):
     # this function locates the current cover img and converts it to a base64 string
     # sometimes the remote img urls don't load the image, so this is a workaround that embeds it in our page
@@ -97,6 +118,44 @@ def get_cover_art(url, html):
     image_data = base64.b64encode(im_data)
     image_data = image_data.decode()
     image_data = 'data:image/jpg;base64,' + image_data
+    return image_data
+'''
+
+def get_cover_art_url(url):
+     
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
+    
+    page = urllib.request.urlopen(req,  timeout=20).read()
+    soup = BeautifulSoup(page,'lxml') #xml parser
+    
+    srcurl = soup.find_all('div', class_="toc-jtoc-left")
+    print( srcurl)    
+    srcurl = srcurl[0].find('img')
+    srcurl = srcurl['src']
+        
+    #img src begins with gibberish; find where https begins
+    url_start = "https://ovidsp.dc2.ovid.com/ovid-a/"
+    
+    img_url = url_start + srcurl
+    
+    return img_url
+
+def get_cover_art(url):
+    # this function locates the current cover img and converts it to a base64 string
+    # sometimes the remote img urls don't load the image, so this is a workaround that embeds it in our page
+    
+    img_url = get_cover_art_url(url)
+    # get current cover image
+    
+    response = requests.get(img_url)    
+    img = Image.open(BytesIO(response.content))
+    
+    output = BytesIO()
+    img.save(output, format='JPEG')
+    im_data = output.getvalue()
+    image_data = base64.b64encode(im_data)
+    image_data = image_data.decode()
+    image_data = 'data:image/jpg;base64,' + image_data  
     return image_data
 
 
@@ -131,7 +190,7 @@ def process_rss_feed(title, url, html, cover):
         file.close()
         
         # Get cover art url for this issue. Get first article fron issue and extract url
-        cover_img = get_cover_art(cover, html)       
+        cover_img = get_cover_art(cover)       
                    
         # Open file and write data
         file = open(file_title, 'w', encoding='utf-8')    
