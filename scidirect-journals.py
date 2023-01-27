@@ -87,7 +87,7 @@ def format_filename(journal_title, html):
 def process_rss_feed(title, url, html):    
     # Open RSS feed    
     #url = "http://rss.sciencedirect.com/publication/science/18761399"
-    req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
+    req = Request(url , headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
     page = urlopen(req).read()
     soup = BeautifulSoup(page,'xml') #xml parser
     print(soup)
