@@ -4,6 +4,9 @@ Created on Thu Jul  2 09:44:34 2020
 
 @author: Christopher Galluzzo
 Import RSS feeds from Ovid and parse the table of contents into HTML
+This is a workaround to pull the cover image url from the LWW site and then convert it to store the img as base64
+in case it vanishes from the LWW site. 
+
 """
 
 import urllib.request
