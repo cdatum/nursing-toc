@@ -128,8 +128,9 @@ def get_cover_art_url(url):
     page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser
     
+    
     srcurl = soup.find_all('div', class_="toc-jtoc-left")
-    print( srcurl)    
+      
     srcurl = srcurl[0].find('img')
     srcurl = srcurl['src']
         
