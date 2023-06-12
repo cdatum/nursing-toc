@@ -90,7 +90,7 @@ def process_rss_feed(title, url, html):
     req = Request(url , headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
     page = urlopen(req).read()
     soup = BeautifulSoup(page,'xml') #xml parser
-    print(soup)
+   
 
     # Get journal title & vol info for naming the .html file 
     journal_title = soup.title.get_text()
@@ -105,8 +105,8 @@ def process_rss_feed(title, url, html):
         file.close()
             
     # Open file and write data
-    file = open(html, 'w', encoding='utf-8')  
-    file.write("<div class='journalTitle'>" + journal_title + "</div>\n")
+    file = open(html, 'a', encoding='utf-8')  
+    #file.write("<div class='journalTitle'>" + journal_title + "</div>\n") #disable this to append new toc at the bottom to prevent missing any articles; periodic pruning will be needed
    
     
     # Create a list to hold article details
