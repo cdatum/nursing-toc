@@ -23,7 +23,7 @@ Directions:
 '''
 # Set the URLs to open
 
-healio = {'jne' : {'title': 'Journal of Nursing Education',    'url': 'healio.html', 'html': 'journal_nursing_education.html'} }
+healio = {'jne' : {'title': 'Journal of Nursing Education',    'url': 'healio.html', 'html': 'healio_journal_nursing_education.html'} }
 
 
 def process_rss_feed(title, url, html):
@@ -79,7 +79,7 @@ def process_rss_feed(title, url, html):
         file.close()
 
     # Open file and write data
-    file = open(html, 'w', encoding='utf-8')
+    file = open(html, 'a', encoding='utf-8')
     file.write("<div class='journalTitle'>" + title + "</div>\n")
 
     # write each article to the html file
@@ -91,7 +91,7 @@ def process_rss_feed(title, url, html):
 
 print ("Instructions: 1: Download webpage at https://journals.healio.com/toc/jne/current")
 print ("2: Save it as 'healio.html' ")
-print ("3: run this script then open journal_nursing_education.html to access the HTML")
+print ("3: run this script then open healio_journal_nursing_education.html to access the HTML")
 for journal, details in healio.items():
     title = details['title']
     url = details['url']

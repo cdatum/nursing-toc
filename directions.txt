@@ -2,15 +2,14 @@ FOR OVID TITLES
 Run the ovid.py script and note any titles that are listed in the console. The titles listed there have new toc that need to be updated on the LibGuide.
 
 FOR SCIDIRECT'S CLINICAL SIMULATION & TEACHING AND LEARNING
-Check each journal's website to see the current table of contents: 
+Check each journal's website to see the current table of contents and compare it with the scidirect-clin-sim.html / scidirect-teaching_learning.html files: 
 https://ezproxy.ccac.edu/login?url=https://www.sciencedirect.com/journal/clinical-simulation-in-nursing 
 https://ezproxy.ccac.edu/login?url=https://www.sciencedirect.com/journal/teaching-and-learning-in-nursing
 
-Their RSS feeds tend to run a month or two in advance, so running  the scidirect-journals.py script before checking the website may  bump this month's titles off of the rss feed (it's dumb, I know). If the titles on the current month's toc don't appear in the scidirect-clin-sim.html / scidirect-teaching_learning.html files, run the script and then check the html files for the toc entires.
+Their RSS feeds tend to run a month or two in advance, so, if the titles on the current month's toc don't appear in the scidirect-clin-sim.html / scidirect-teaching_learning.html files, run the scidirect-journals.py script and then check the html files for the toc entires. View the HTML source code and then copy & paste the current month's TOC into the LibGuide.
 
 
 FOR HEALIO'S JOURNAL OF NURSING EDUCATION
-
 
 HEALIO BACKUP
 1: Download webpage at https://journals.healio.com/toc/jne/current
