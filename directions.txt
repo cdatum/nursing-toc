@@ -13,5 +13,5 @@ FOR HEALIO'S JOURNAL OF NURSING EDUCATION
 
 HEALIO BACKUP
 1: Download webpage at https://journals.healio.com/toc/jne/current
-2: Save it as 'healio.html'
+2: Save it as 'healio_journal_nursing_education_raw.html'
 3: run the healio-website-JNE.py script then open journal_nursing_education.html to access the HTML

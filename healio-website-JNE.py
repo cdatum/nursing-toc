@@ -23,7 +23,7 @@ Directions:
 '''
 # Set the URLs to open
 
-healio = {'jne' : {'title': 'Journal of Nursing Education',    'url': 'healio.html', 'html': 'healio_journal_nursing_education.html'} }
+healio = {'jne' : {'title': 'Journal of Nursing Education',    'url': 'healio_journal_nursing_education_raw.html', 'html': 'healio_journal_nursing_education.html'} }
 
 
 def process_rss_feed(title, url, html):
