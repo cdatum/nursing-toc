@@ -80,7 +80,7 @@ def process_rss_feed(title, url, html):
 
     # Open file and write data
     file = open(html, 'a', encoding='utf-8')
-    file.write("<div class='journalTitle'>" + title + "</div>\n")
+    file.write("<hr><div class='journalTitle'>" + title + "</div>\n")
 
     # write each article to the html file
     for entry in articles:
