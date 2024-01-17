@@ -43,9 +43,9 @@ def process_rss_feed(title, url, html):
         #Get the title, permalink, and authors
         #Load each article into the 'articles' list and then write all of them to the html file
         article_title = item.find('h5', class_='issue-item__title')
-        permalink = 'https://journals-healio-com.ezproxy.ccac.edu/doi/' + article_title.contents[0]['id']
+        permalink = 'https://journals-healio-com.ezproxy.ccac.edu' + article_title.contents[0]['href']
         article_title = article_title.get_text()
-        print("\n" + article_title)
+        print("\n" + article_title + "\n" + permalink)
         
         names = ''
         
