@@ -178,7 +178,7 @@ def process_rss_feed(title, url, html, cover):
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    
     page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
     soup = BeautifulSoup(page,'xml') #xml parser
-    
+    #print(title)
     
     # Get journal title & vol info for naming the .html file
     journal_title = soup.title.get_text()
@@ -203,9 +203,7 @@ def process_rss_feed(title, url, html, cover):
         for item in article_list:        
             article_title = item.title.get_text()
             description = item.description.get_text()
-            permalink = update_permalink(item.link.get_text())
-
-            
+            permalink = update_permalink(item.link.get_text())            
                 
             toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
             file.write(BeautifulSoup(toc, 'html.parser').prettify())
