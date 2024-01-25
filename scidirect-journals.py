@@ -107,7 +107,7 @@ def process_rss_feed(title, url, html):
     # Open file and write data
     file = open(html, 'a', encoding='utf-8')  
     #file.write("<div class='journalTitle'>" + journal_title + "</div>\n") #disable this to append new toc at the bottom to prevent missing any articles; periodic pruning will be needed
-   
+    file.write("<hr><div class='journalTitle'>" + title + "</div>\n")
     
     # Create a list to hold article details
     articles = []
