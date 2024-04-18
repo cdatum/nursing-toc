@@ -58,7 +58,7 @@ scidirect = {'csn' : {'title': 'Clinical Simulation in Nursing',     'url': 'htt
 
 # Update the permalink in the rss to include the ezproxy server info
 def update_permalink(url):
-    permalink = url.replace("https://www.sciencedirect.com","https://www-sciencedirect-com.ezproxy.ccac.edu")
+    permalink = url.replace("https://www.sciencedirect.com","https://ezproxy.ccac.edu/login?url=https://www.sciencedirect.com")
     return permalink
 
 # Extract the authors from the xml description
@@ -126,7 +126,8 @@ def process_rss_feed(title, url, html):
         articles.append(toc)      
         
     # the source xml lists the last article first, let's reverse that
-    articles.reverse()    
+    articles.reverse()
+    file.write("<hr><div class='journalTitle'>" + title + "</div>\n")    
     for entry in articles:
         # Write each article to the html file        
         file.write(BeautifulSoup(entry, 'html.parser').prettify())
