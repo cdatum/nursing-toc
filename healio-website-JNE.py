@@ -15,10 +15,10 @@ import os
 '''
 Directions:
 
-    1. Download the current table of contents page ("Save page as...") from the healio site (https://journals.healio.com/toc/jne/current) as 'healio.html'
+    1. Download the current table of contents page ("Save page as...") from the healio site (https://journals.healio.com/toc/jne/current) as 'healio_journal_nursing_education_raw.html'
     2. Place the healio.html file in the same directory as this script
     3. Run script
-    4. View the resulting html in journal_nursing_education.html
+    4. View the resulting html in healio_journal_nursing_education.html
 
 '''
 # Set the URLs to open
