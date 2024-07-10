@@ -123,16 +123,11 @@ def get_cover_art(url, html):
     return image_data
 '''
 
-def get_cover_art_url(url):
-     
-    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})
-    
+def get_cover_art_url(url):     
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})    
     page = urllib.request.urlopen(req,  timeout=20).read()
-    soup = BeautifulSoup(page,'lxml') #xml parser
-    
-    
-    srcurl = soup.find_all('div', class_="toc-jtoc-left")
-      
+    soup = BeautifulSoup(page,'lxml') #xml parser     
+    srcurl = soup.find_all('div', class_="toc-jtoc-left")      
     srcurl = srcurl[0].find('img')
     srcurl = srcurl['src']
         
