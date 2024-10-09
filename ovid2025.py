@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jul  2 09:44:34 2020
+Created on Tue Oct  8 13:35:16 2024
 
 @author: Christopher Galluzzo
 Import RSS feeds from Ovid and parse the table of contents into HTML
+Updated for new 2025 title list
 """
+
 
 import urllib.request
 from urllib.request import Request, urlopen
@@ -56,7 +58,8 @@ from io import BytesIO
 
 # Set the URLs to open
 
-journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00024776-000000000-00000'},
+old_journals = {
+            'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http://ovidsp.ovid.com/rss/journals/00024776/current.rss', 'html': 'nursing_education_perspectives.html',    'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00024776-000000000-00000'},
             'ajn' : {'title': 'AJN - American Journal of Nursing',  'url': 'http://ovidsp.ovid.com/rss/journals/00000446/current.rss', 'html': 'american_journal_of_nursing.html',       'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00000446-000000000-00000'},
             'nmie': {'title': 'Nursing Made Incredibly Easy',       'url': 'http://ovidsp.ovid.com/rss/journals/00152258/current.rss', 'html': 'nursing_made_incredibly_easy.html',      'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00152258-000000000-00000'},
             'nur' : {'title': 'Nursing',                            'url': 'http://ovidsp.ovid.com/rss/journals/00152193/current.rss', 'html': 'nursing.html',                           'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00152193-000000000-00000'},            
@@ -65,6 +68,32 @@ journals = {'nep' : {'title': 'Nursing Education Perspectives',     'url': 'http
             'dccn': {'title': 'Dimensions of Critical Care Nursing','url': 'http://ovidsp.ovid.com/rss/journals/00003465/current.rss', 'html': 'dimensions_critical_care_nursing.html',  'cover': 'https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=00003465-000000000-00000'}
             
            }
+
+journals = {
+'anc' :{'id':'00149525','title':'Advances in Neonatal Care','html':'advances_in_neonatal.html'},
+'ans' :{'id':'00012272','title':'Advances in Nursing Science','html':'advances_in_nursing_science.html'},
+'cin' :{'id':'00024665','title':'CIN: Computers, Informatics, Nursing','html':'CIN.html'},
+'hmr' :{'id':'00004010','title':'Health Care Management Review','html':'health_care_mgt_review.html'},
+'jona':{'id':'00005110','title':'JONA: Journal of Nursing Administration','html':'JONA.html'},
+'jcn' :{'id':'00005082','title':'Journal of Cardiovascular Nursing','html':'journal_cardiovascular_nursing.html'},
+'jhpn':{'id':'00129191','title':'Journal of Hospice & Palliative Nursing','html':'journal_hospice_pallliative_nursing.html'},
+'jin' :{'id':'00129804','title':'Journal of Infusion Nursing','html':'journal_infusion_nursing.html'},
+'jncq':{'id':'00001786','title':'Journal of Nursing Care Quality','html':'journal_nursing_care_quality.html'},
+'ne'  :{'id':'00006223','title':'Nurse Educator','html':'nurse_educator.html'},
+'nmgt':{'id':'00006247','title':'Nursing Management','html':'nursing_mgt.html'},
+'orth':{'id':'00006416','title':'Orthopaedic Nursing','html':'orthopaedic_nursing.html'},
+'prof':{'id':'01269241','title':'Professional Case Management','html':'professional_care_mgt.html'},
+'nep' :{'id':'00024776','title':'Nursing Education Perspectives','html':'nursing_education_perspectives.html'},
+'ajn' :{'id':'00000446','title':'AJN - American Journal of Nursing','html':'american_journal_of_nursing.html'},
+'nmie':{'id':'00152258','title':'Nursing Made Incredibly Easy','html':'nursing_made_incredibly_easy.html'},
+'nur' :{'id':'00152193','title':'Nursing','html':'nursing.html'},
+'mcn' :{'id':'00005721','title':'MCN: American Journal of Maternal Child Nursing','html':'mcn.html'},
+'hhn' :{'id':'01845097','title':'Home Healthcare Now','html':'home_healthcare_now.html'},
+'dccn':{'id':'00003465','title':'Dimensions of Critical Care Nursing','html':'dimensions_critical_care_nursing.html'}
+
+    }
+
+
 
 # Update the permalink in the rss to include the ezproxy server info
 def update_permalink(url):
@@ -171,8 +200,14 @@ def format_filename(journal_title, html):
     dot = html.find('.')
     return "toc/" + html[:dot] + issue_details + ".html"
               
-
-def process_rss_feed(title, url, html, cover): 
+# this is the main function that processes the items in the 'journals' variable [list]
+def process_rss_feed(title, journal_id, html): 
+    
+    #Setup urls for rss and cover art
+    url = "https://ovidsp.ovid.com/rss/journals/" + journal_id + "/current.rss"
+    cover_url = "https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=" + journal_id + "-000000000-00000"
+    
+ 
     # Open RSS feed
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    
     page = urllib.request.urlopen(req, timeout=20).read() #.decode('utf-8')
@@ -190,7 +225,7 @@ def process_rss_feed(title, url, html, cover):
         file.close()
         
         # Get cover art url for this issue. Get first article fron issue and extract url
-        cover_img = get_cover_art(cover)       
+        cover_img = get_cover_art(cover_url)       
                    
         # Open file and write data
         file = open(file_title, 'w', encoding='utf-8')    
@@ -211,9 +246,16 @@ def process_rss_feed(title, url, html, cover):
         file.close()
         print(title + "\n") # print the title that was just processed          
 
+'''
 for journal, details in journals.items():    
     title = details['title']
     url = details['url']
     html = details['html']
     cover = details['cover']
     process_rss_feed(title,url,html,cover)
+'''
+for journal, details in journals.items():    
+    title = details['title']
+    journal_id = details['id']
+    html = details['html']    
+    process_rss_feed(title,journal_id,html)
