@@ -82,7 +82,7 @@ journals = {
 'ne'  :{'id':'00006223','title':'Nurse Educator','html':'nurse_educator.html'},
 'nmgt':{'id':'00006247','title':'Nursing Management','html':'nursing_mgt.html'},
 'orth':{'id':'00006416','title':'Orthopaedic Nursing','html':'orthopaedic_nursing.html'},
-'prof':{'id':'01269241','title':'Professional Case Management','html':'professional_care_mgt.html'},
+'prof':{'id':'01269241','title':'Professional Case Management','html':'professional_case_mgt.html'},
 'nep' :{'id':'00024776','title':'Nursing Education Perspectives','html':'nursing_education_perspectives.html'},
 'ajn' :{'id':'00000446','title':'AJN - American Journal of Nursing','html':'american_journal_of_nursing.html'},
 'nmie':{'id':'00152258','title':'Nursing Made Incredibly Easy','html':'nursing_made_incredibly_easy.html'},
