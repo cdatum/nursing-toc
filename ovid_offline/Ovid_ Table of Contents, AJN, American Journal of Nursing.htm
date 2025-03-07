@@ -1,0 +1,624 @@
+<html>
+	<head>
+		<title>Ovid ToC Builder</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!--
+<div class="article">
+   <div class="articleTitle">
+      <a aria-label="Beyond stress management: Targeted solutions for nurse burnout. - opens in new window" href="https://ezproxy.ccac.edu/login?url=https://ovidsp.dc2.ovid.com/ovidweb.cgi?T=JS&amp;CSC=Y&amp;NEWS=N&amp;PAGE=fulltext&amp;LSLINK=80&amp;D=ovft&amp;AN=00152193-202503000-00001" target="_blank">
+      Beyond stress management: Targeted solutions for nurse burnout.
+      </a>
+   </div>
+   <div class="articleDesc">
+      <div class="author">
+         <strong>
+         Author:
+         </strong>
+         <span>
+         Laskowski-Jones, Linda MS, APRN, ACNS-BC, CEN, NEA-BC, FAWM, FAAN
+         </span>
+      </div>
+      <div class="page">
+         <strong>
+         Page:
+         </strong>
+         <span>
+         6
+         </span>
+      </div>
+   </div>
+</div>
+
+    -->
+		<script>
+			// Script to extract table of contents from OCE Ovid pages
+			$(document).ready(function () {
+				//get a list of the articles as an array of objects
+				var articleList = $("div.oce-article")
+				var finalHTML = ""
+
+				//for each article, extract info
+				$.each(articleList, function (i, v) {
+					var title,
+						author,
+						oldOvidLink,
+						oldArticleID,
+						OceOvidLink,
+						link = ""
+					//for oce.ovid.com links use this format: https://ezproxy.ccac.edu/login?url=https://oce.ovid.com + link
+					//ex: https://ezproxy.ccac.edu/login?url=https://oce.ovid.com/journals/numa2/202502000/00006247-202502000-00001
+
+					//Build an old ovid link
+					oldArticleID = $(this).find("a.oce-article-title-link").attr("href").slice(-24)
+					//00000446-202502000-00026 (-24)
+					oldOvidLink = "https://ovidsp.dc2.ovid.com/ovidweb.cgi?T=JS&amp;CSC=Y&amp;NEWS=N&amp;PAGE=fulltext&amp;LSLINK=80&amp;D=ovft&amp;AN=" + oldArticleID
+					OceOvidLink = "https://oce.ovid.com" + $(this).find("a.oce-article-title-link").attr("href")
+
+					//SET WHICH OVID LINK YOU WANT TO USE: old ovid or OCE ovid
+					link = OceOvidLink
+
+					title = $(this).find("a.oce-article-title-link").text()
+					author = $(this).find("li.oce-author-name").text()
+
+					//build the html entry for the toc pages
+					var html = '<div class="article"><div class="articleTitle"><a aria-label="' + title + ' - opens in new window" href="https://ezproxy.ccac.edu/login?url=' + link + '" target="_blank">' + title + "</a></div>"
+					html += '<div class="articleDesc"><div class="author"><strong>Author:</strong><span>' + author + '</span></div><div class="page"><strong>Page:</strong><span>6</span></div></div></div>'
+					finalHTML += html
+				})
+				//add div for cover image
+				finalHTML += "<div class='coverImg'><img src='' alt='cover image'></div>"
+				console.log("finalHTML", finalHTML)
+			})
+		</script>
+	</head>
+	<body>
+		<h1>Convert OCE toc to LibGuides toc</h1>
+		<p>View source code for javscript. <br />Visit OCE (<a href="https://oce.ovid.com/journals" target="_blank">https://oce.ovid.com/journals</a>) to get current toc, view source and copy the <code>&lt;article-list&gt;</code> entry and paste in source. Then check console log for output.</p>
+		<!-- INSERT ARTICLE-LIST FROM OCE OVID HERE-->
+
+		<article-list aria-label="Articles For Selected Issue And Volume"
+			><div class="oce-article-wrapper">
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00001">
+							PCNA News and Resources
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 95-96.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00002">
+							United States Women Veterans and Cardiovascular Disease Primary Prevention
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Park, Linda G..</li>
+								<li class="oce-author-name">Dancu, Caroline</li>
+								<li class="oce-author-name">Martyn-Nemeth, Pamela</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 97-99.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00003">
+							American Heart Association Council on Cardiovascular and Stroke Nursing Liaison Report From the Communications Committee
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Dzikowicz, Dillon J..</li>
+								<li class="oce-author-name">Alonso, Windy W..</li>
+								<li class="oce-author-name">Kang, JungHee</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 100-102.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!---->
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Open Access</span></div>
+							<!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00004">
+							Measuring Self-Care <span>: A Description of the Family of Disease-Specific and Generic Instruments Based on the Theory of Self-Care of Chronic Illness</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Jaarsma, Tiny</li>
+								<li class="oce-author-name">De Maria, Maddalena</li>
+								<li class="oce-author-name">Matarese, Maria</li>
+								<li class="oce-author-name">Luciani, Michela</li>
+								<li class="oce-author-name">Vellone, Ercole</li>
+								<li class="oce-author-name">Dickson, Victoria Vaughan</li>
+								<li class="oce-author-name">Riegel, Barbara</li>
+								<li class="oce-author-name">Ausili, Davide</li>
+								<li class="oce-author-name">Barbaranelli, Claudio</li>
+								<li class="oce-author-name">Stromberg, Anna</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 103-113.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!---->
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Open Access</span></div>
+							<!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00005">
+							Association Between Insomnia and Cognitive Frailty Among Older Patients With Chronic Heart Failure <span>: Multiple Mediating Effects of Depressive Symptoms and Social Support</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Liu, Mengqi</li>
+								<li class="oce-author-name">Luan, Xiaorong</li>
+								<li class="oce-author-name">Wang, Xiaoli</li>
+								<li class="oce-author-name">Wang, Jiurui</li>
+								<li class="oce-author-name">Qu, Wenran</li>
+								<li class="oce-author-name">Yan, Zeping</li>
+								<li class="oce-author-name">Liu, Jian</li>
+								<li class="oce-author-name">Zhang, Simeng</li>
+								<li class="oce-author-name">Wei, Huimin</li>
+								<li class="oce-author-name">Wang, Zhiwei</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 114-123.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00006">
+							Diet Quality Mediates the Relationship Between Chronic Stress and Inflammation in Patients With Metabolic Syndrome
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Chung, Misook L..</li>
+								<li class="oce-author-name">Moser, Debra K..</li>
+								<li class="oce-author-name">Thomas, D.. Travis</li>
+								<li class="oce-author-name">Kang, JungHee</li>
+								<li class="oce-author-name">Biddle, Martha J..</li>
+								<li class="oce-author-name">Lennie, Terry A..</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 124-132.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00007">
+							Relationships of Psychosocial Factors to Diabetes Self-efficacy <span>: A Cross-sectional, Correlational Study</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Wright, Nina</li>
+								<li class="oce-author-name">Slocumb, Rhonda H..</li>
+								<li class="oce-author-name">Heo, Seongkum</li>
+								<li class="oce-author-name">Kang, JungHee</li>
+								<li class="oce-author-name">Haley, Brandy</li>
+								<li class="oce-author-name">Kim, JinShil</li>
+								<li class="oce-author-name">Barbé, Tammy</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 133-142.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00008">
+							Do Interventions Meet the Needs of Caregivers of Cardiac Patients? <span>: A Scoping Review</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Guldin, Mai-Britt</li>
+								<li class="oce-author-name">Nielsen, Camilla Palmhøj</li>
+								<li class="oce-author-name">Ørtenblad, Lisbeth</li>
+								<li class="oce-author-name">Nissen, Nina Konstantin</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 143-162.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00009">
+							“Eventually…Your Body Just Can't No More” <span>: An Exploration of Patient Perspectives on Events Preceding Takotsubo Syndrome Episodes</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Keirns, Natalie G..</li>
+								<li class="oce-author-name">Tripolone, Janice</li>
+								<li class="oce-author-name">Rosen, Rochelle K..</li>
+								<li class="oce-author-name">Ouaddi, Sara</li>
+								<li class="oce-author-name">Salmoirago-Blotcher, Elena</li>
+								<li class="oce-author-name">Breault, Christopher</li>
+								<li class="oce-author-name">Burg, Matthew</li>
+								<li class="oce-author-name">Gathright, Emily</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 163-169.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00010">
+							Psychometric Testing of the Thai Version of Self-Care of Chronic Illness Inventory Version 4c in Patients With Stroke
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Srisomthrong, Kannika</li>
+								<li class="oce-author-name">Klinjun, Nuntaporn</li>
+								<li class="oce-author-name">Kelly, Matthew</li>
+								<li class="oce-author-name">Suwanno, Jom</li>
+								<li class="oce-author-name">Suwanno, Juk</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 170-181.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00011">
+							Psychometric Analysis of the Heart Failure Somatic Perception Scale in Japanese Patients With Heart Failure
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Okada, Akiko</li>
+								<li class="oce-author-name">Ito, Shinya</li>
+								<li class="oce-author-name">Hayashi, Kanako</li>
+								<li class="oce-author-name">Tsuchihashi-Makaya, Miyuki</li>
+								<li class="oce-author-name">Jurgens, Corrine Y..</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: 182-192.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00012">
+							The Effect of Hand Reflexology Massage on Pain and Anxiety After Coronary Artery Bypass Graft Surgery <span>: A Double-Blind, Randomized, Placebo-Controlled Trial</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Arslan, Gülşah Gürol</li>
+								<li class="oce-author-name">Göktuna, Gizem</li>
+								<li class="oce-author-name">Dağcan, Necibe</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E57-E64.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00013">
+							Sensitivity and Specificity of Pulse Oximetry for Identification of Peripheral Artery Disease <span>: A Systematic Review</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Tehan, Peta Ellen</li>
+								<li class="oce-author-name">Hawke, Fiona Ellen</li>
+								<li class="oce-author-name">Phua, Sheryl</li>
+								<li class="oce-author-name">Chuter, Vivienne Helaine</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E65-E71.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00014">
+							Cardiovascular Health Behavior Prediction Model in Patients With Type 2 Diabetes
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Lee, Sun Kyung</li>
+								<li class="oce-author-name">Hwang, Seon Young</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E72-E81.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!---->
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Open Access</span></div>
+							<!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00015">
+							Dignity, Resilience, and Quality of Life in Patients With Cardiac Disease <span>: A Partial Least Squares Structural Equation Modeling Approach</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Hsu, Ching-Hwa</li>
+								<li class="oce-author-name">Tung, Heng-Hsin</li>
+								<li class="oce-author-name">Huang, Chien-Lung</li>
+								<li class="oce-author-name">Hsu, Shu-Fen</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E82-E90.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00016">
+							Patients' Perceptions of Hybrid and Virtual-Only Care Models During the Cardiac Rehabilitation Patient Journey <span>: A Qualitative Study</span
+							><!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Ghisi, Gabriela Lima de Melo</li>
+								<li class="oce-author-name">Konidis, Renee</li>
+								<li class="oce-author-name">Flores-Hukom, Madeleine</li>
+								<li class="oce-author-name">Cotie, Lisa M..</li>
+								<li class="oce-author-name">Marzolini, Susan</li>
+								<li class="oce-author-name">Vanzella, Lais Manata</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E91-E100.</span
+						><!---->
+					</section>
+				</div>
+				<div class="oce-article">
+					<article-indicators
+						><div class="wk-pills-container">
+							<div class="wk-pill wk-pill-small wk-pill-suggestion"><span class="wk-pill-text">Subscribed</span></div>
+							<!----><!----><!---->
+						</div></article-indicators
+					><span class="oce-article-title" aria-label="article.title "
+						><a class="oce-article-title-link" href="/journals/jcanu/202503000/00005082-202503000-00017">
+							Qualitative Description of Exercise Perceptions and Experiences Among People With Human Immunodeficiency Virus in the High-Intensity Exercise to Attenuate Limitations and Train Habits Study
+							<!----></a
+						></span
+					>
+					<section class="oce-citations">
+						<div>
+							<ol>
+								<li class="oce-author-name">Adhiambo, Harriet Fridah</li>
+								<li class="oce-author-name">Oliveira, Vitor H.. F..</li>
+								<li class="oce-author-name">Do, Hoai</li>
+								<li class="oce-author-name">Webel, Allison R..</li>
+								<li class="oce-author-name">Khuu, Vincent</li>
+								<li class="oce-author-name">Jankowski, Catherine</li>
+								<li class="oce-author-name">Cook, Paul</li>
+								<li class="oce-author-name">Erlandson, Kristine M..</li>
+								<li class="oce-author-name">Davey, Christine Horvat</li>
+								<!---->
+							</ol>
+						</div>
+						<span class="oce-journal-name">The Journal of Cardiovascular Nursing</span><span class="oce-journal-name"> 2025;</span
+						><!----><span class="oce-journal-name">
+							40 <span> (2) </span
+							><!----></span
+						><!----><span class="oce-journal-name">: E101-E109.</span
+						><!---->
+					</section>
+				</div>
+				<!---->
+			</div></article-list
+		>
+
+		<!--END ARTICLE LIST-->
+	</body>
+</html>

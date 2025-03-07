@@ -1,0 +1,1129 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+// Use this to extract the toc for use in the ClinSim guide. Instructions: 1) save copy of journal toc page as a local page 2) edit the html to include jquery in the <head> in a <script> tag, and  3) run the script in console:  
+    $(document).ready(function(){
+  var list = $("li.js-article-list-item");
+  console.log("list", list);
+  var output = "";
+
+  
+  $.each(list, function(i, v){
+    
+    var title = $(v).find('span.js-article-title').html();
+    var url = $(v).find('a.anchor-primary').attr('href');
+    var authors = $(v).find('div.js-article__item__authors').html();
+    var html = '';
+    html = '<div class="article"><div class="articleTitle"><a href="https://ezproxy.ccac.edu/login?url=' + url + '" target="_blank">' + title + '</a><br><span class="author">By ' + authors + '</span></div></div>'
+    
+    output += html;   
+    
+  })
+  console.log(output);
+  
+ //var html = '<div class="article"><div class="articleTitle"><a href="https://ezproxy.ccac.edu/login?url=' + url + 'target="_blank"><em>' + title + '</em></a><br><span class="author">By' + authors + '</span></div></div>'
+})
+
+        </script>
+	</head>
+	
+	<body>
+		<h1>View page source for info on how to extract toc for SciDirect journals. </h1>
+		<ol class="js-article-list article-list-items">
+			<li id="article-0" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Editorial</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001609"><input id="checkbox-S1876139924001609" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Competency-based education: Simulation educators, don't be Afraid!</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101668</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Editorial</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001609" id="S1876139924001609" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Competency-based education: Simulation educators, don't be Afraid!</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Marie Gilbert, Penni Watts, Kristen M. Brown</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101668</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001609/pdfft?md5=ebe25f51623680b97c2bc4a016dea88e&amp;pid=1-s2.0-S1876139924001609-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001609"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-1" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Review Article</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001403"><input id="checkbox-S1876139924001403" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Exploring the use of immersive virtual reality in nursing education: A scoping review</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101648</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Review article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001403" id="S1876139924001403" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Exploring the use of immersive virtual reality in nursing education: A scoping review</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Laura Vogelsang, Sheri Wright, Tracie Risling, Anthony de Padua, ... David Thompson</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101648</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001403/pdfft?md5=f5ff099518714f0ca7530cea571b2b2d&amp;pid=1-s2.0-S1876139924001403-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001403"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001403" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-2" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Featured Articles</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001336"><input id="checkbox-S1876139924001336" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Use of the Anesthetists’ Non-technical Skills (ANTS) Framework with screen-based simulation for nurse anesthetists</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101641</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001336" id="S1876139924001336" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Use of the Anesthetists’ Non-technical Skills (ANTS) Framework with screen-based simulation for nurse anesthetists</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Winifred Hwang, Jeffrey A. Groom, Suzan Kardong-Edgren, Virginia C. Simmons</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101641</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001336/pdfft?md5=26c672f52381ef9e148b183afab38873&amp;pid=1-s2.0-S1876139924001336-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001336"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001336" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-3" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Research Briefs</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001221"><input id="checkbox-S1876139924001221" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Rapid cycle deliberate practice for an ECMO emergency simulation training for nurses: A quasi-experimental study</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101630</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001221" id="S1876139924001221" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Rapid cycle deliberate practice for an ECMO emergency simulation training for nurses: A quasi-experimental study</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Bakker Gabriela Barcellos, Campos Juliana Faria, Oliveira Hudson Carmo, Busquet Ferreira Luciana Lopes, ... Santos Pires Paula Rodrigues</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101630</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001221/pdfft?md5=cafb9ccdfacf312795830e4354077779&amp;pid=1-s2.0-S1876139924001221-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001221"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001221" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001233"><input id="checkbox-S1876139924001233" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Effects of immersive virtual reality simulation–based maternity nursing education: A randomized controlled trial</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101631</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001233" id="S1876139924001233" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Effects of immersive virtual reality simulation–based maternity nursing education: A randomized controlled trial</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Sookyung Jeong, Chiyoung Cha</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101631</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001233/pdfft?md5=beece8ed7fdfacd3a68bec6955653361&amp;pid=1-s2.0-S1876139924001233-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001233"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001233" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001269"><input id="checkbox-S1876139924001269" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Prebriefing in simulation from the nursing student perspective: A qualitative descriptive study</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101634</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001269" id="S1876139924001269" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Prebriefing in simulation from the nursing student perspective: A qualitative descriptive study</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Brittany A. Brennan, Wayne Hintz, Renee’ Zacher</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101634</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001269/pdfft?md5=3f2cd7f80da20daaee188bc4d5293443&amp;pid=1-s2.0-S1876139924001269-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001269"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001269" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001324"><input id="checkbox-S1876139924001324" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Efficacy of simulation over live clinical rotations in nurse practitioner prenatal education: A retrospective cohort study</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101640</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001324" id="S1876139924001324" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Efficacy of simulation over live clinical rotations in nurse practitioner prenatal education: A retrospective cohort study</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Diana I.G. Lithgow, Georgia Mueller Luckey, Khoa Dang</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101640</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001324/pdfft?md5=d49af56624697071672d85c024da9f53&amp;pid=1-s2.0-S1876139924001324-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001324"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001324" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001075"><input id="checkbox-S1876139924001075" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Scenario-based simulation training, occupational burnout and psychological capital in hospital-based nursing instructors: A cross-sectional study</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101615</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001075" id="S1876139924001075" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Scenario- based simulation training, occupational burnout and psychological capital in hospital-based nursing instructors: A cross-sectional study</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Bingbing Li, Jiabao Ju, Xiaohong Sun, Jinyu Guo, ... Yan Zhang</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101615</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001075/pdfft?md5=198296a9b11cae082be668155dcb9278&amp;pid=1-s2.0-S1876139924001075-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001075"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001075" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001300"><input id="checkbox-S1876139924001300" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Comparing two online learning activities addressing interprofessional approach on health science students’ attitudes towards teamwork</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101638</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001300" id="S1876139924001300" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Comparing two online learning activities addressing interprofessional approach on health science students’ attitudes towards teamwork</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Derya Uzelli, Esra Akın, Derya Özer Kaya, Gülşah Kaner Tohtak, ... Merve Keskin</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101638</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001300/pdfft?md5=fd6813542f7ee3d47e0074b093eb5f02&amp;pid=1-s2.0-S1876139924001300-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001300"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001300" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001142"><input id="checkbox-S1876139924001142" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Clinical judgment, person-centered care and professionalism: A transmodal ordered network analysis of student performance in virtual patient simulations</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101622</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001142" id="S1876139924001142" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Clinical judgment, person-centered care and professionalism: A transmodal ordered network analysis of student performance in virtual patient simulations</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Mamta Shah, Amanda Davis, Muhammad H. Ashiq, Yeyu Wang, ... David Williamson Shaffer</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101622</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001142/pdfft?md5=32068e86ccdca6ea470a7c54b83475b7&amp;pid=1-s2.0-S1876139924001142-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001142"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001142" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S187613992400118X"><input id="checkbox-S187613992400118X" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Utilisation, Application and Effectiveness of Metaverse in Simulation-Based Nursing Education: Protocol for a Mixed Methods Systematic Review</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101626</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S187613992400118X" id="S187613992400118X" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Utilisation, Application and Effectiveness of Metaverse in Simulation-Based Nursing Education: Protocol for a Mixed Methods Systematic Review</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Carley Jans, Tracy Levett-Jones, Cherie Lucas</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101626</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S187613992400118X/pdfft?md5=cad2807536281d1256ada4b6aaf4a1f3&amp;pid=1-s2.0-S187613992400118X-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S187613992400118X"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S187613992400118X" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S187613992400121X"><input id="checkbox-S187613992400121X" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Low resource, high impact: Just-in-time training toolkit in response to a public health crisis</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101629</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S187613992400121X" id="S187613992400121X" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Low resource, high impact: Just-in-time training toolkit in response to a public health crisis</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Nancy Spear Owen, Cara Thurman Johnson, Christine Hader, Kristine Monia, Amanda J. Hessels</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101629</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S187613992400121X/pdfft?md5=afa87196db26278e364ed9e572d08f97&amp;pid=1-s2.0-S187613992400121X-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S187613992400121X"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S187613992400121X" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001282"><input id="checkbox-S1876139924001282" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Preparing for Clinical Placements and Transition to Practice With Objective Structured Clinical Examinations: A Qualitative Study of Family Nurse Practitioner Students</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101636</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001282" id="S1876139924001282" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Preparing for Clinical Placements and Transition to Practice With Objective Structured Clinical Examinations: A Qualitative Study of Family Nurse Practitioner Students</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Sean Sibley, Kathryn N Robinson, Janet Fairman, Carla Nye, ... Kelley Strout</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101636</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001282/pdfft?md5=445d9c1426ec873fecf765a4cdb7f596&amp;pid=1-s2.0-S1876139924001282-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001282"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001282" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001373"><input id="checkbox-S1876139924001373" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article The effectiveness of 3D cadaver simulation learning on the perceived learning achievement, satisfaction, and flow state of nursing students</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101645</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001373" id="S1876139924001373" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">The effectiveness of 3D cadaver simulation learning on the perceived learning achievement, satisfaction, and flow state of nursing students</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Hyeongyeong Yoon</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101645</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001373/pdfft?md5=3decd37ed64d2c6a2f1ad6c2d60ac880&amp;pid=1-s2.0-S1876139924001373-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001373"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001373" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001348"><input id="checkbox-S1876139924001348" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Using simulation for cross-curricular integration of adverse childhood experiences knowledge in a baccalaureate nursing program</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101642</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001348" id="S1876139924001348" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Using simulation for cross-curricular integration of adverse childhood experiences knowledge in a baccalaureate nursing program</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Amy Rohn, David B. Vander Ark, Christina Quick</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101642</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001348/pdfft?md5=23af2e12dc7a40b26e1e46d81a1fb516&amp;pid=1-s2.0-S1876139924001348-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001348"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001348" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001361"><input id="checkbox-S1876139924001361" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Immersive virtual reality aggression and violence management education for nursing students: A pre-test, post-test, follow-up evaluation</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101644</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001361" id="S1876139924001361" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Immersive virtual reality aggression and violence management education for nursing students: A pre-test, post-test, follow-up evaluation</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Joshua Johnson, Sara Hansen, Luke Hopper, Jessica Watson, ... Brennen Mills</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101644</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001361/pdfft?md5=36f1dd3d3ee0cb69bf36ec715890420f&amp;pid=1-s2.0-S1876139924001361-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001361"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001361" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S187613992400135X"><input id="checkbox-S187613992400135X" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Using a diversity, equity, and inclusion simulation set to promote cultural competence among nursing students</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101643</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S187613992400135X" id="S187613992400135X" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Using a diversity, equity, and inclusion simulation set to promote cultural competence among nursing students</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Christina Von Colln-Appling, Nancy Barker, Adrienne Wharry</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101643</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S187613992400135X/pdfft?md5=e43dc433c0954463b72d085711b15823&amp;pid=1-s2.0-S187613992400135X-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S187613992400135X"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S187613992400135X" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001257"><input id="checkbox-S1876139924001257" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Exploring nursing faculty perceived individual and organizational readiness to use online simulation as a teaching strategy</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101633</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001257" id="S1876139924001257" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Exploring nursing faculty perceived individual and organizational readiness to use online simulation as a teaching strategy</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Luz-Patricia Torres, Genevieve Zipp</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101633</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001257/pdfft?md5=37c0715df3cc73e50fc4add5b18b9760&amp;pid=1-s2.0-S1876139924001257-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001257"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001257" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001385"><input id="checkbox-S1876139924001385" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Effects of screen-based simulation method on the attitudes and practices of nursing students regarding intimate partner violence: Randomized controlled trial</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101646</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001385" id="S1876139924001385" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Effects of screen-based simulation method on the attitudes and practices of nursing students regarding intimate partner violence: Randomized controlled trial</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Gamze Ağartıoğlu Kundakçı, Aynur Uysal Toraman</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101646</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001385/pdfft?md5=dc1ba9e93f5dcc022222b6b22cb823e7&amp;pid=1-s2.0-S1876139924001385-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001385"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001385" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001415"><input id="checkbox-S1876139924001415" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Effects of simulation-based education on nursing students’ perceptions of positive birth and natural birth approaches</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101649</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001415" id="S1876139924001415" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Effects of simulation-based education on nursing students’ perceptions of positive birth and natural birth approaches</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Duygu Güleç Şatır, Şenay Ünsal Atan, Oya Kavlak, Gül Ertem, ... Selin Ahsun</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101649</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001415/pdfft?md5=5bd48fb18b4befeed5b6806147495974&amp;pid=1-s2.0-S1876139924001415-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001415"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001415" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001397"><input id="checkbox-S1876139924001397" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Integrating telehealth into nursing education through standardized patient simulation</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101647</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001397" id="S1876139924001397" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Integrating telehealth into nursing education through standardized patient simulation</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Sade Simmons, Marian Tabi, Estelle Bester, Joanne Zanetos</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101647</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001397/pdfft?md5=f8e4e39de5791795cc82d7cbebeb5f6f&amp;pid=1-s2.0-S1876139924001397-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001397"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001397" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001476"><input id="checkbox-S1876139924001476" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Perioperative inter-professional education training enhance team performance and readiness</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101655</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001476" id="S1876139924001476" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Perioperative inter-professional education training enhance team performance and readiness</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Ghazal Hashemi, Yao Zhang, Yun Wu, Wenjing He, ... Bin Zheng</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101655</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001476/pdfft?md5=fedb8ea5ad4b3bb4f7cd594b87ed2a0b&amp;pid=1-s2.0-S1876139924001476-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001476"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001476" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-22" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Short Communication</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001270"><input id="checkbox-S1876139924001270" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Virtual simulation-based educational training enhances nursing students’ preparedness to conduct perinatal intimate partner violence screenings</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101635</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Short communication</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001270" id="S1876139924001270" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Virtual simulation-based educational training enhances nursing students’ preparedness to conduct perinatal intimate partner violence screenings</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Candice N. Selwyn, Lori Prewitt Moore, Rebecca Thomas, Bailey D. Mosley</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101635</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001270/pdfft?md5=57591628294b1ae9c05f99b69f18587f&amp;pid=1-s2.0-S1876139924001270-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001270"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001270" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-23" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Innovations in Simulation</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001452"><input id="checkbox-S1876139924001452" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Breaking down blood transfusion administration: An in-scenario debriefing simulation</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101653</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001452" id="S1876139924001452" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Breaking down blood transfusion administration: An in-scenario debriefing simulation</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Jennifer Dale-Tam</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101653</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001452/pdfft?md5=a12f7bb2623a4e7d8fee0892a657e8b3&amp;pid=1-s2.0-S1876139924001452-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001452"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001452" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+			<li id="article-24" class="js-section js-section-level-0 article-item toc-anchor">
+				<h2 class="section-title js-section-title-level-0 u-text-light u-margin-s-top u-margin-s-bottom u-text-italic text-m js-section-title">Articles from special issue on Interdisciplinary Education and Research</h2>
+				<ol class="article-list">
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001245"><input id="checkbox-S1876139924001245" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Nursing and medical students’ views before and after participation in a simulated ward-based interprofessional learning activity: An exploratory study</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101632</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001245" id="S1876139924001245" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Nursing and medical students’ views before and after participation in a simulated ward-based interprofessional learning activity: An exploratory study</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Hugh Davies, Olivia Gallagher, Amanda Cole, Carol Crevacore, ... Kate Jutsum</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101632</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001245/pdfft?md5=10f56a283e561f6a3223006a5c6fd41d&amp;pid=1-s2.0-S1876139924001245-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001245"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001245" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001208"><input id="checkbox-S1876139924001208" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Operationalizing the Healthcare Simulation Standards of Best Practice (HSSOBP&lt;sup&gt;TM&lt;/sup&gt;) to avoid training scars: An interprofessional exemplar</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101628</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001208" id="S1876139924001208" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Operationalizing the Healthcare Simulation Standards of Best Practice (HSSOBP<sup>TM</sup>) to avoid training scars: An interprofessional exemplar</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Loretta Aller, Ashley E. Franklin, Cynthia E. Johnson, Paulo Gonzalez, Gina Nix</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101628</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001208/pdfft?md5=648865be95a872d538576e4ba0550705&amp;pid=1-s2.0-S1876139924001208-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001208"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001208" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001294"><input id="checkbox-S1876139924001294" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Simulated interprofessional handoff among nursing and occupational therapy students: Determining students’ self-efficacy for collaborative practice</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101637</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Full text access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001294" id="S1876139924001294" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Simulated interprofessional handoff among nursing and occupational therapy students: Determining students’ self-efficacy for collaborative practice</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Kathryn Vanderzwan, Katie Stephens, Katharine Preissner, Susan Kilroy</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101637</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001294/pdfft?md5=9e9d6abce008d07a2d1916ad57f8d32b&amp;pid=1-s2.0-S1876139924001294-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001294"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001294" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+					<li class="js-article-list-item article-item u-padding-xs-top u-margin-l-bottom">
+						<div class="checkbox checkbox-small move-left u-show-from-md">
+							<label class="checkbox-label" for="checkbox-S1876139924001440"><input id="checkbox-S1876139924001440" type="checkbox" class="checkbox-input" aria-checked="false" aria-disabled="false" /><span class="checkbox-check"></span><span class="checkbox-label-value">select article Re-Examining interprofessional simulation: Using social identity theory to explore the influence of ‘profession’ on interprofessional learning</span></label>
+						</div>
+						<div hidden="">https://doi.org/10.1016/j.ecns.2024.101652</div>
+						<dl class="js-article article-content">
+							<span class="article-info text-xs"
+								><span class="js-article-subtype">Research article</span><span class="js-open-access u-text-italic"><span class="js-access-indicator u-margin-xs-hor access-indicator-yes"></span>Open access</span></span
+							>
+							<dt>
+								<h3 class="text-m u-font-serif u-display-inline">
+									<a class="anchor article-content-title u-margin-xs-top u-margin-s-bottom anchor-primary" href="https://www.sciencedirect.com/science/article/pii/S1876139924001440" id="S1876139924001440" usagezone="rslt_list_item"
+										><span class="anchor-text-container"
+											><span class="anchor-text"><span class="js-article-title text-l">Re- Examining interprofessional simulation: Using social identity theory to explore the influence of ‘profession’ on interprofessional learning</span></span></span
+										></a
+									>
+								</h3>
+							</dt>
+							<dd class="js-article-author-list u-clr-grey8 text-s"><div class="text-s u-clr-grey8 js-article__item__authors">Neil Harrison, Susan Somerville, Prashant Kumar, Kathleen Collins</div></dd>
+							<dd class="js-article-page-range u-clr-grey8 text-s">Article 101652</dd>
+							<dd class="js-article-link u-margin-xs-top u-margin-s-bottom article-item-link">
+								<a class="anchor pdf-download u-margin-l-right text-s anchor-primary anchor-icon-left anchor-with-icon" href="https://www.sciencedirect.com/science/article/pii/S1876139924001440/pdfft?md5=1109f9d7dc34af64c830f4f8aa67c71d&amp;pid=1-s2.0-S1876139924001440-main.pdf" target="_blank" data-aa-name="Pdf link" aria-describedby="S1876139924001440"
+									><svg focusable="false" viewBox="0 0 35 32" height="20" class="icon icon-pdf-multicolor">
+										<path d="M7 .362h17.875l6.763 6.1V31.64H6.948V16z" stroke="#000" stroke-width=".703" fill="#fff"></path>
+										<path d="M.167 2.592H22.39V9.72H.166z" fill="#da0000"></path>
+										<path fill="#fff9f9" d="M5.97 3.638h1.62c1.053 0 1.483.677 1.488 1.564.008.96-.6 1.564-1.492 1.564h-.644v1.66h-.977V3.64m.977.897v1.34h.542c.27 0 .596-.068.596-.673-.002-.6-.32-.667-.596-.667h-.542m3.8.036v2.92h.35c.933 0 1.223-.448 1.228-1.462.008-1.06-.316-1.45-1.23-1.45h-.347m-.977-.94h1.03c1.68 0 2.523.586 2.534 2.39.01 1.688-.607 2.4-2.534 2.4h-1.03V3.64m4.305 0h2.63v.934h-1.657v.894H16.6V6.4h-1.56v2.026h-.97V3.638"></path>
+										<path d="M19.462 13.46c.348 4.274-6.59 16.72-8.508 15.792-1.82-.85 1.53-3.317 2.92-4.366-2.864.894-5.394 3.252-3.837 3.93 2.113.895 7.048-9.25 9.41-15.394zM14.32 24.874c4.767-1.526 14.735-2.974 15.152-1.407.824-3.157-13.72-.37-15.153 1.407zm5.28-5.043c2.31 3.237 9.816 7.498 9.788 3.82-.306 2.046-6.66-1.097-8.925-4.164-4.087-5.534-2.39-8.772-1.682-8.732.917.047 1.074 1.307.67 2.442-.173-1.406-.58-2.44-1.224-2.415-1.835.067-1.905 4.46 1.37 9.065z" fill="#f91d0a"></path></svg
+									><span class="anchor-text-container"><span class="anchor-text">View PDF</span></span></a
+								>
+								<div class="article-preview js-article-preview u-display-inline text-s">
+									<button class="button-link button-link-primary u-font-sans text-s button-link-icon-right" aria-expanded="false" aria-describedby="S1876139924001440" type="button">
+										<span class="button-link-text-container"><span class="button-link-text">Article preview</span></span
+										><svg focusable="false" viewBox="0 0 92 128" height="20" class="icon icon-navigate-down article-preview-icon"><path d="M1 51l7-7 38 38 38-38 7 7-45 45z"></path></svg>
+									</button>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</body>
+</html>

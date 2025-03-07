@@ -178,7 +178,7 @@ def process_rss_feed(title, journal_id, html):
             permalink = update_permalink(item.link.get_text())
               
                 
-            toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
+            toc = "<div class='article'><div class='articleTitle'><a target='_blank' href='" + permalink + "' aria-label='" + article_title + " - opens in new window'>" + article_title + "</a></div>" + "<div class='articleDesc'>" + description + "</div></div>"            
             file.write(BeautifulSoup(toc, 'html.parser').prettify())
         file.write("<div class='coverImg'><img src='" + cover_img + "'  alt='cover image'></div>" )    
         file.close()
