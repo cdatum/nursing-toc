@@ -92,20 +92,28 @@ def update_permalink(url):
     #return permalink.replace("https","http")
 
 
-def get_cover_art_url(url):     
+def get_cover_art_url(url):   
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})    
     page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser     
-    srcurl = soup.find_all('div', class_="toc-jtoc-left")      
-    srcurl = srcurl[0].find('img')
-    srcurl = srcurl['src']
+    
+    try:
+        srcurl = soup.find_all('div', class_="toc-jtoc-left")      
+        srcurl = srcurl[0].find('img')
+        srcurl = srcurl['src']
         
-    #img src begins with gibberish; find where https begins
-    url_start = "https://ovidsp.dc2.ovid.com/ovid-a/"
+        #img src begins with gibberish; find where https begins
+        url_start = "https://ovidsp.dc2.ovid.com/ovid-a/"
+        
+        img_url = url_start + srcurl
+        return img_url
     
-    img_url = url_start + srcurl
+    except:
+        print("Cover image not found ")
+        return "Image not found"
+        
     
-    return img_url
+    
 
 def get_cover_art(url):
     # this function locates the current cover img and converts it to a base64 string
@@ -113,17 +121,21 @@ def get_cover_art(url):
     
     img_url = get_cover_art_url(url)
     # get current cover image
+    print("img_url: " + img_url)
     
-    response = requests.get(img_url)    
-    img = Image.open(BytesIO(response.content))
-    
-    output = BytesIO()
-    img.save(output, format='JPEG')
-    im_data = output.getvalue()
-    image_data = base64.b64encode(im_data)
-    image_data = image_data.decode()
-    image_data = 'data:image/jpg;base64,' + image_data  
-    return image_data
+    if (img_url != "Image not found"):
+        response = requests.get(img_url)    
+        img = Image.open(BytesIO(response.content))
+        
+        output = BytesIO()
+        img.save(output, format='JPEG')
+        im_data = output.getvalue()
+        image_data = base64.b64encode(im_data)
+        image_data = image_data.decode()
+        image_data = 'data:image/jpg;base64,' + image_data  
+        return image_data
+    else:
+        return "https://libguides.ccac.edu"
 
 
 def format_filename(journal_title, html):
@@ -143,7 +155,7 @@ def process_rss_feed(title, journal_id, html):
     
     #Setup urls for rss and cover art
     url = "https://ovidsp.ovid.com/rss/journals/" + journal_id + "/current.rss"
-    cover_url = "https://ezproxy.ccac.edu/login?url=http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=" + journal_id + "-000000000-00000"
+    cover_url = "https://ezproxy.ccac.edu/login?url=https://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=toc&D=ovft&AN=" + journal_id + "-000000000-00000"
     
  
     # Open RSS feed
@@ -163,7 +175,8 @@ def process_rss_feed(title, journal_id, html):
         file.close()
         
         # Get cover art url for this issue. Get first article fron issue and extract url
-        cover_img = get_cover_art(cover_url)       
+        cover_img = get_cover_art(cover_url)  
+        
                    
         # Open file and write data
         file = open(file_title, 'w', encoding='utf-8')    
