@@ -92,11 +92,15 @@ def update_permalink(url):
     #return permalink.replace("https","http")
 
 
-def get_cover_art_url(url):   
+# This function gets the cover image url for the current issue from the Ovid site
+def get_cover_art_url(url):  
+
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'})    
     page = urllib.request.urlopen(req,  timeout=20).read()
     soup = BeautifulSoup(page,'lxml') #xml parser     
     
+    # sometimes the cover image does not appear on Ovid. 
+    # this reeturns the img url if it's available or a message if it's not
     try:
         srcurl = soup.find_all('div', class_="toc-jtoc-left")      
         srcurl = srcurl[0].find('img')
@@ -108,8 +112,7 @@ def get_cover_art_url(url):
         img_url = url_start + srcurl
         return img_url
     
-    except:
-        print("Cover image not found ")
+    except:        
         return "Image not found"
         
     
@@ -123,6 +126,8 @@ def get_cover_art(url):
     # get current cover image
     print("img_url: " + img_url)
     
+    
+    # If the cover image is not available, return a libguides url
     if (img_url != "Image not found"):
         response = requests.get(img_url)    
         img = Image.open(BytesIO(response.content))
@@ -135,6 +140,7 @@ def get_cover_art(url):
         image_data = 'data:image/jpg;base64,' + image_data  
         return image_data
     else:
+        print("Cover image not found ")
         return "https://libguides.ccac.edu"
 
 
@@ -174,7 +180,7 @@ def process_rss_feed(title, journal_id, html):
         file = open(file_title, 'w', encoding='utf-8')
         file.close()
         
-        # Get cover art url for this issue. Get first article fron issue and extract url
+        # Get cover img url for this issue. Get first article fron issue and extract url
         cover_img = get_cover_art(cover_url)  
         
                    
