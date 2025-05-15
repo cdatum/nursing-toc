@@ -107,7 +107,7 @@ def get_cover_art_url(url):
         srcurl = srcurl['src']
         
         #img src begins with gibberish; find where https begins
-        url_start = "https://ovidsp.dc2.ovid.com/ovid-a/"
+        url_start = "https://ovidsp.dc2.ovid.com/ovid-new-a/"
         
         img_url = url_start + srcurl
         return img_url
@@ -124,7 +124,7 @@ def get_cover_art(url):
     
     img_url = get_cover_art_url(url)
     # get current cover image
-    # print("img_url: " + img_url)
+    #print("img_url: " + img_url)
     
     
     # If the cover image is not available, return a libguides url
