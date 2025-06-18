@@ -9,7 +9,7 @@ Updated for new 2025 title list
 
 
 import urllib.request
-from urllib.request import Request, urlopen
+from urllib.request import Request#, urlopen
 from bs4 import BeautifulSoup
 import os
 from PIL import Image
@@ -107,9 +107,10 @@ def get_cover_art_url(url):
         srcurl = srcurl['src']
         
         #img src begins with gibberish; find where https begins
-        url_start = "https://ovidsp.dc2.ovid.com/ovid-new-a/"
+        url_start = "https://ovidsp.dc2.ovid.com/ovid-new-b/"              
         
         img_url = url_start + srcurl
+        #print("img_url: " + img_url)
         return img_url
     
     except:        
